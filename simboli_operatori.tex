@@ -1,13 +1,25 @@
 %italianizziomo gli operatori
 
-\DeclareMathOperator{\sen}{sen}
-\DeclareMathOperator{\tg}{tg}
-\DeclareMathOperator{\cotg}{cotg}
-\DeclareMathOperator{\arcsen}{arcsen}
-\DeclareMathOperator{\arctg}{arctg}
+\let\sin\relax % evitiamo un messaggio di avviso
+\DeclareMathOperator{\sin}{sen}
+
+\let\arcsin\relax % evitiamo un messaggio di avviso
+\DeclareMathOperator{\arcsin}{arcsen}
+
+\let\tan\relax % evitiamo un messaggio di avviso
+\DeclareMathOperator{\tan}{tg}
+
+\let\arctan\relax % evitiamo un messaggio di avviso
+\DeclareMathOperator{\arctan}{arctg}
+
+\let\cot\relax % evitiamo un messaggio di avviso
+\DeclareMathOperator{\cot}{cotg}
+
+
 \DeclareMathOperator{\arccotg}{arccotg}
 %\DeclareMathOperator{\sec}{sec}
 \DeclareMathOperator{\cosec}{cosec}
+
 \providecommand{\abs}[1]{\lvert#1\rvert}
 \providecommand{\norm}[1]{\lVert#1\rVert} 
 %\newcommand{\gradi}{\ensuremath{^\circ}}
