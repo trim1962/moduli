@@ -1,1 +1,19 @@
+\usepackage{calc}
 \newcommand{\nobs}{\nobreakspace}
+%\newcommand\puntini[1]{%
+%\ifmmode\expandafter\@firstofttwo\else%
+%\expandafter\@secondoftwo\fi%
+%{\makebox[\widthof{$#1$} ]}{\makebox[\widthof{#1}]}{\dotfill}}
+%\newcommand*\puntini[1]{%
+%   \ifmmode
+%     \makebox[\widthof{$#1$}]{$\dotfill$}%
+%   \else
+%     \makebox[\widthof{#1}]{\dotfill}%
+%   \fi
+%}
+\makeatletter
+\newcommand\puntini[1]{%
+\ifmmode\expandafter\@firstoftwo\else
+\expandafter\@secondoftwo\fi
+{\makebox[\widthof{$#1$}]}{\makebox[\widthof{#1}]}{\dotfill}}
+\makeatother
