@@ -1,0 +1,19 @@
+	\begin{tikzpicture}[scale=0.3, label style/.style={font=\rmfamily\fontsize{128}{128}\selectfont}]
+%\begin{tikzpicture}[scale=0.3, label style/.style={font=\fontfamily{times}\fontsize{128}{128}\selectfont}]	
+\tkzInit[ymin=-0.1,ymax=6.3,xmin=-0.1,xmax=6.3] 
+	\tkzClip
+	\tkzDefPoint(0,0){a}
+	\tkzDefPoint(3,0){b}
+	\tkzDefPoint(3,3){c}
+	\tkzDefPoint(0,3){d}
+	\tkzDefPointBy[rotation= center d angle 90](b)
+	\tkzGetPoint{e}
+	\tkzDefPointBy[rotation= center b angle 270](d)
+	\tkzGetPoint{f}
+	\tkzDrawSegments(a,b b,c c,d d,a d,e)
+	\tkzDrawSegments(b,f e,f d,b)
+	\tkzDefMidPoint(d,b) \tkzGetPoint{m}
+	\tkzLabelPoint(m){\fontencoding{T1}\fontfamily{ptm}\fontsize{32}{32}\selectfont C}
+	\tkzDefMidPoint(d,f) \tkzGetPoint{n}
+	\tkzLabelPoint[rotate=-45](n){\fontencoding{T1}\fontfamily{ptm}\fontsize{38}{32}\selectfont D}
+	\end{tikzpicture}
