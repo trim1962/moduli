@@ -59,3 +59,17 @@
   \let\Im\undefined\DeclareMathOperator{\Im}{Im}
 \DeclareMathOperator{\mcd}{mcd}
 \DeclareMathOperator{\mcm}{mcm}
+% % % %prodotto in croce
+\newcommand{\prodcroce}[4]{%
+	\begin{tikzpicture}[thick]
+	\def\x{2.8mm}
+	\def\h{2.4mm}
+	\def\dist{12mm}%1cm
+	\node at (0,0) {$\displaystyle \frac{#1}{#2}$};
+	\node at (\dist,0) {$\displaystyle \frac{#3}{#4}$};
+	\node at (2.5*\dist,0) {$#1\cdot #4=#2\cdot #3$};
+	% collegamento termini
+	\draw[-stealth] (\x, \h)--(\dist-\x,-\h);
+	\draw[-stealth] (\x,-\h)--(\dist-\x, \h);
+	\end{tikzpicture}%
+}
