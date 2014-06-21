@@ -55,9 +55,19 @@
 %\newcommand{\nbs}{\nobreakspace}
 %le costanti
 \newcommand{\costante}{\textrm{costante}}
-\DeclareMathOperator{\uimm}{j}
+%\DeclareMathOperator{\uimm}{j}
+% The number `e'
+\providecommand*{\eu}%
+{\ensuremath{\mathrm{e}}}
+\providecommand*{\uimm}%
+{\ensuremath{\mathrm{j}}}
+
   \let\Re\undefined\DeclareMathOperator{\Re}{Re}
   \let\Im\undefined\DeclareMathOperator{\Im}{Im}
+%  \renewoperator{\Re}%
+%  {\mathrm{Re}}{\nolimits}
+%  \renewoperator{\Im}%
+%  {\mathrm{Im}}{\nolimits}
 \DeclareMathOperator{\mcd}{mcd}
 \DeclareMathOperator{\mcm}{mcm}
 % % % %prodotto in croce
