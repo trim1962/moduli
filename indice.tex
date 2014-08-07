@@ -3,8 +3,12 @@
 \usepackage{textcase}
 %
 \contentsmargin{0pt}
+\titlecontents{todonotes}[0pc]{}{\makebox[6em][l]{\thecontentslabel}}{}{\hfill\MakeTextUppercase{\textbf{\thecontentspage}}}
+
 \titlecontents{table}[0pc]{}{\makebox[6em][l]{\thecontentslabel}}{}{\hfill\MakeTextUppercase{\textbf{\thecontentspage}}}
+
 \titlecontents{figure}[0pc]{}{\makebox[6em][l]{\thecontentslabel}}{}{\hfill\MakeTextUppercase{\textbf{\thecontentspage}}} 
+
 \titlecontents{chapter}[0pc]{\addvspace{7pt}}{\makebox[6em][l]{\textbf{Capitolo\nobs\thecontentslabel}}\textbf}{\textbf}{\hfill\MakeTextUppercase{\textbf{\thecontentspage}}\\[-.75em]\rule{\textwidth}{.4pt}}
 %
 \titlecontents{section}[0pc]{}{\makebox[6em][l]{\thecontentslabel}}{}{\hfill\MakeTextUppercase{\textbf{\thecontentspage}}\\[-.75em]}

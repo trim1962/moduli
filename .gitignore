@@ -1,1 +1,4 @@
 base.log
+*.log
+*.aux
+*.pdf
