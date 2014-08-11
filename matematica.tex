@@ -10,7 +10,7 @@
 \theoremstyle{definition}
 \newtheorem{esemp}{Esempio}[chapter]
 \newenvironment{esempio}
-{\bigskip\hrule\nobreak\begin{esemp}}
+{\bigskip\hrule\nobreak\begin{esemp}\noindent}
 	{\end{esemp}\nobreak\hrule\bigskip}
 
 \usepackage{bm}
@@ -19,3 +19,7 @@
 \usepackage{cancel}
 % % % % % % % % % % insiemi
 \usepackage{braket}
+\usepackage{xlop}
+  \input{../Mod_base/macro_xlop} % scomposizione in fattori primi e operazioni
+
+  \getprime{20}%
