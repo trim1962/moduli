@@ -1,5 +1,21 @@
 %\usepackage[italian]{translator}  
 %\usepackage[toc,acronym,nonumberlist,section=chapter,xindy]{glossaries}
-\usepackage[toc,acronym,style=altlistgroup, translate=false,nonumberlist,automake]{glossaries}
+%\usepackage [toc,acronym, style=altlistgroup, translate=false,nonumberlist]
+%{glossaries}
+\usepackage [toc,acronym,symbols, translate=false,nonumberlist]
+{glossaries}
 %\usepackage[toc,acronym,style=super, translate=false,nonumberlist,automake]{glossaries}
+\usepackage{glossary-mcols}
+\usepackage{glossary-longragged}
+%\setglossarystyle{mcolindex}
 \usepackage{glossaries-babel}
+\addto\captionsitalian{%
+ \renewcommand*{\glossaryname}{Glossario}%
+ \renewcommand*{\acronymname}{Acronimi}%
+ \renewcommand*{\entryname}{Nomenclatura}%
+ \renewcommand*{\descriptionname}{Descrizione}%
+ \renewcommand*{\symbolname}{Simbolo}%
+ \renewcommand*{\pagelistname}{Elenco delle pagine}%
+ \renewcommand*{\glssymbolsgroupname}{Simboli}%
+ \renewcommand*{\glsnumbersgroupname}{Numeri}
+}
