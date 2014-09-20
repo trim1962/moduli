@@ -60,10 +60,13 @@
 \providecommand*{\eu}%
 {\ensuremath{\mathrm{e}}}
 \providecommand*{\uimm}%
-{\ensuremath{\mathrm{j}}}
-
+%{\ensuremath{\mathrm{j}}}
+{j\mkern1mu}
   \let\Re\undefined\DeclareMathOperator{\Re}{Re}
   \let\Im\undefined\DeclareMathOperator{\Im}{Im}
+%coniugio
+\newcommand{\conj}[2][3]{{}\mkern#1mu\overline{\mkern-#1mu#2}}
+\let\misura\conj
 %  \renewoperator{\Re}%
 %  {\mathrm{Re}}{\nolimits}
 %  \renewoperator{\Im}%
