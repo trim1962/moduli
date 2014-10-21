@@ -2,3 +2,6 @@ base.log
 *.log
 *.aux
 *.pdf
+*.gz
+*.gz
+*.gz
