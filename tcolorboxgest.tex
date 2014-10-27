@@ -2,99 +2,85 @@
 \tcbuselibrary{theorems}
 \tcbuselibrary{skins}
 \tcbuselibrary{breakable}
-%\newtcbtheorem[number within=section]{esempiot}{Esempio}%
-%{fonttitle=\bfseries}{th}
-%\newtcbtheorem [number within=section]{esempiot}{Esempio}{esestyle}{}
 \tcbset{
 defstyle/.style={enhanced,
                   breakable,
                    colback=white,
-                    colbacktitle=gray!20,
+                    colbacktitle=green!20,
                     coltitle=black,
                   fonttitle=\bfseries\upshape,
                   separator sign={.},
                   colframe=white,
                  leftrule=12mm,
-                 overlay={\node[anchor=north west,outer sep=6pt,rectangle,fill=green,minimum width=.5cm,minimum height=.5cm] at (frame.north west) {}; }},
+                 overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={bricks},pattern color=green] at (frame.west) {}; }},
 esestyle/.style={enhanced,
                   breakable,
                    colback=white,
-                    colbacktitle=gray!20,
+                    colbacktitle=orange!20,
                     coltitle=black,
                   fonttitle=\bfseries\upshape,
                   separator sign={.},
                   colframe=white,
-                  %colback=aliceblue,
-                 % colframe=RoyalBlue,
-               %  borderline={0.5pt}{-5pt}{green},
-                 % shadow={0mm}{0mm}{0mm}{black!25!white},
                  leftrule=12mm,
-%                  overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) % { \fill [orange] (0.1,0.1) rectangle (0.2,0.2)};
-%                  \includegraphics[width=8mm]{../Mod_base/0022}}; 
-%                  overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includegraphics[width=8mm]{../Mod_base/0022}}; }},
-                  overlay={\node[anchor=north west,outer sep=6pt,rectangle,fill=orange,minimum width=.5cm,minimum height=.5cm] at (frame.north west) {}; }},
-esestyleatt/.style={enhanced,
+                 overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={sixpointed stars},pattern color=orange] at (frame.west) {}; }},
+attstyle/.style={enhanced,
                   breakable,
                    colback=white,
-                    colbacktitle=gray!20,
+                    colbacktitle=red!20,
                     coltitle=black,
                   fonttitle=\bfseries\upshape,
                   separator sign={.},
                   colframe=white,
-                  %colback=aliceblue,
-                 % colframe=RoyalBlue,
-               %  borderline={0.5pt}{-5pt}{green},
-                 % shadow={0mm}{0mm}{0mm}{black!25!white},
                  leftrule=12mm,
-%                  overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) % { \fill [orange] (0.1,0.1) rectangle (0.2,0.2)};
-%                  \includegraphics[width=8mm]{../Mod_base/0022}}; 
-%                  overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includegraphics[width=8mm]{../Mod_base/0022}}; }},
-                  overlay={\node[anchor=north west,outer sep=6pt,rectangle,fill=red,minimum width=.5cm,minimum height=.5cm] at (frame.north west) {}; }},                
+                 overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={checkerboard},pattern color=red] at (frame.west) {}; }},        
 ossstyle/.style={enhanced,
                   breakable,
+                   colback=white,
+                    colbacktitle=olive!20,
+                    coltitle=black,
                   fonttitle=\bfseries\upshape,
                   separator sign={.},
-                  colback=green!10,
-                  colframe=green!50!black,
-                  enlarge top by=5.5mm,
-                  overlay={\foreach \x in {2cm,3.5cm} {
-                     \begin{scope} [shift={([xshift=\x]frame.north west)}]
-                     \path [draw=green!50!black,fill=green!10,line width=1mm] (0,0) arc (0:180:5mm);
-                     \path [fill=black] (-0.2,0) arc (0:180:1mm);
-                     \end{scope}}}],
-                  shadow={1mm}{-1mm}{0mm}{black!25!white}},
+                  colframe=white,
+                 leftrule=12mm,
+                  overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={crosshatch dots},pattern color=olive] at (frame.west) {}; }},           
 procstyle/.style={enhanced,
                   breakable,
+                   colback=white,
+                    colbacktitle=blue!20,
+                    coltitle=black,
                   fonttitle=\bfseries\upshape,
                   separator sign={.},
-                  colback=red!15!yellow!5!white,
-                  colframe=orange!75!black,
-                  shadow={1mm}{-1mm}{0mm}{black!25!white}},
+                  colframe=white,
+                 leftrule=12mm,
+                  overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={fivepointed stars},pattern color=blue!75!black] at (frame.west) {}; }},           
 princstyle/.style={enhanced,
                   breakable,
                    colback=white,
-                    colbacktitle=gray!20,
+                    colbacktitle=brown!20,
                     coltitle=black,
                   fonttitle=\bfseries\upshape,
                   separator sign={.},
                   colframe=white,
-                  %colback=aliceblue,
-                 % colframe=RoyalBlue,
-               %  borderline={0.5pt}{-5pt}{green},
-                 % shadow={0mm}{0mm}{0mm}{black!25!white},
                  leftrule=12mm,
-%                  overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) % { \fill [orange] (0.1,0.1) rectangle (0.2,0.2)};
-%                  \includegraphics[width=8mm]{../Mod_base/0022}}; 
-%                  overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includegraphics[width=8mm]{../Mod_base/0022}}; }},
-                  overlay={\node[anchor=north west,outer sep=6pt,rectangle,fill=red!15!yellow!5!white,minimum width=.5cm,minimum height=.5cm] at (frame.north west) {}; }},
+                 overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={north west lines},pattern color=brown] at (frame.west) {}; }}, 
+teostyle/.style={enhanced,
+                  breakable,
+                   colback=white,
+                    colbacktitle=cyan!20,
+                    coltitle=black,
+                  fonttitle=\bfseries\upshape,
+                  separator sign={.},
+                  colframe=white,
+                 leftrule=12mm,
+                 overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={grid},pattern color=cyan] at (frame.west) {}; }},                  
 }
 \newtcolorbox{lattention}{breakable,enhanced,arc=0mm,colback=gray!5,colframe=gray,leftrule=12mm,%
 overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includegraphics[width=8mm]{0022}}; }}
-
-\newtcbtheorem [number within=chapter]{esempiot}{Esercizio}{esestyle}{}
-\newtcbtheorem [number within=chapter]{attenzionet}{Attenzione}{esestyleatt}{}
 \newtcbtheorem [number within=chapter] {definizionet}{Definizione}{defstyle}{}
-\newtcbtheorem [number within=chapter] {procedurat}{Procedura}{procstyle}{}
+\newtcbtheorem [number within=chapter]{esempiot}{Esempio}{esestyle}{}
+\newtcbtheorem [number within=chapter]{attenzionet}{Attenzione}{attstyle}{}
 \newtcbtheorem [number within=chapter] {osservazionet}{Osservazione}{ossstyle}{}
+\newtcbtheorem [number within=chapter] {procedurat}{Procedura}{procstyle}{}
+
 \newtcbtheorem [number within=chapter] {principiot}{Principio}{princstyle}{}
-\newtcbtheorem [number within=chapter] {teoremat}{Teorema}{princstyle}{}
+\newtcbtheorem [number within=chapter] {teoremat}{Teorema}{teostyle}{}
