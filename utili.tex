@@ -17,9 +17,9 @@
 \ifthenelse{\boolean{puntinisi}}{%
 \ifmmode\expandafter\@firstoftwo\else
 \expandafter\@secondoftwo\fi
-{\makebox[\widthof{$#1$}]}{\makebox[\widthof{#1}]}{\dotfill}}{#1}}
+{\makebox[\widthof{$#1$}]}{\makebox[\widthof{#1}+15pt]}{\dotfill}}{#1}}
 \makeatother
-% % % % % % % tasti cacolatrice
+% % % % % % % tasti calcolatrice
 \newcommand{\tasto}[1]{\tikz[baseline=-.5ex]\node[rectangle,draw,minimum height=.5cm,minimum width=1cm, rounded corners] {#1};}
 
 
