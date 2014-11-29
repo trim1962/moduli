@@ -25,7 +25,7 @@
 \newcommand{\tastopgreco}{\tastoshift\tasto{$\pi$}}
 \newcommand{\tastopiu}{\tasto{$+$}}
 \newcommand{\tastomeno}{\tasto{$-$}}
-\newcommand{\tastopper}{\tasto{$\times$}}
+\newcommand{\tastoper}{\tasto{$\times$}}
 \newcommand{\tastodiv}{\tasto{$\div$}}
 \newcommand{\tastouguale}{\tasto{$=$}}
 \newcommand{\tastotan}{\tasto{$\tan$}}
@@ -36,10 +36,21 @@
 \newcommand{\tastoisin}{\tastoshift\tasto{$\sin^{-1}$}}
 \newcommand{\tastoans}{\tasto{Ans}}
 \newcommand{\tastomode}{\tasto{Mode}}
+\newcommand{\testgradi}{\begin{center}
+		\begin{tabular}{ll}
+		\tastosin\tasto{90}\tastouguale& 1\\ 
+	\end{tabular}
+	\end{center}}
+\newcommand{\testradianti}{\begin{center}
+		\begin{tabular}{ll}
+			\tastopgreco\tastodiv\tasto{2}\tastouguale	&\num[round-precision=6,round-mode=places]{1.570796327}  \\ 
+			\tastosin\tastoans\tastouguale& 1 \\ 
+		\end{tabular} 
+	\end{center}}
 %todo inizio
 \usepackage[italian,colorinlistoftodos]{todonotes}
 \newcommand{\bassapriorita}[1]{\todo[color=green!40]{#1}}
 \newcommand{\mediapriorita}[1]{\todo[color=blue!40]{#1}}
 \newcommand{\altapriorita}[1]{\todo[color=red!40]{#1}}
-%todofine
+%todo fine
 
