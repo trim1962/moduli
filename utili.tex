@@ -21,9 +21,21 @@
 \makeatother
 % % % % % % % tasti calcolatrice
 \newcommand{\tasto}[1]{\tikz[baseline=-.5ex]\node[rectangle,draw,minimum height=.5cm,minimum width=1cm, rounded corners] {#1};}
-
-
-
+\newcommand{\tastoshift}{\tasto{shift}}
+\newcommand{\tastopgreco}{\tastoshift\tasto{$\pi$}}
+\newcommand{\tastopiu}{\tasto{$+$}}
+\newcommand{\tastomeno}{\tasto{$-$}}
+\newcommand{\tastopper}{\tasto{$\times$}}
+\newcommand{\tastodiv}{\tasto{$\div$}}
+\newcommand{\tastouguale}{\tasto{$=$}}
+\newcommand{\tastotan}{\tasto{$\tan$}}
+\newcommand{\tastocos}{\tasto{$\cos$}}
+\newcommand{\tastosin}{\tasto{$\sin$}}
+\newcommand{\tastoitan}{\tastoshift\tasto{$\tan^{-1}$}}
+\newcommand{\tastoicos}{\tastoshift\tasto{$\cos^{-1}$}}
+\newcommand{\tastoisin}{\tastoshift\tasto{$\sin^{-1}$}}
+\newcommand{\tastoans}{\tasto{Ans}}
+\newcommand{\tastomode}{\tasto{Mode}}
 %todo inizio
 \usepackage[italian,colorinlistoftodos]{todonotes}
 \newcommand{\bassapriorita}[1]{\todo[color=green!40]{#1}}
