@@ -16,27 +16,93 @@
 %
 \titlecontents*{csection}[0pc]{}{\makebox[6em][l]{\thecontentslabel}}{}{\hfill\MakeTextUppercase{\textbf{\thecontentspage}}}
 
-\usepackage{titlesec}
-\renewcommand{\thechapter}{\arabic{chapter}}
+%\usepackage{titlesec}
+%\renewcommand{\thechapter}{\arabic{chapter}}
+%\titleformat{\chapter}[display]
+%{\bfseries\Large}
+%{\filleft\MakeUppercase{\chaptertitlename} \Huge\thechapter}
+%{4ex}
+%{\titlerule
+%\vspace{2ex}%
+%\filright}
+%[\vspace{2ex}%
+%\titlerule]
+%
+%\titleformat{\section}
+%{
+%\vspace{.8ex}%
+%\normalfont\bfseries}
+%{\thesection.}{.5em}{}
+%
+%\titleformat{\subsection}
+%{
+%\vspace{.8ex}%
+%\normalfont\itshape\bfseries}
+%{\thesubsection}{.5em}{}
+%
+\usepackage[calcwidth]{titlesec}
+\usepackage{changepage}
+%\usepackage{graphicx}
+%\usepackage{caption}
+%\usepackage{fancyhdr}
+%\usepackage{marginnote}
+%\usepackage{lettrine}
+%\usepackage{lipsum}
+
+\newlength\mylen
+
+%\DeclareDocumentCommand\ChapIma{omm}
+%  {\let\cleardoublepage\relax
+%    \ifthenelse{\isodd{\value{page}}}
+%      {\mbox{}\clearpage}{\mbox{}\clearpage\mbox{}\clearpage}%
+%    \resizebox{.9\textwidth}{.9\textheight}{\includegraphics{#3}}
+%    \mbox{}\thispagestyle{empty}\clearpage
+%    \IfNoValueTF{#1}{\chapter{#2}}{\chapter[#1]{#2}}
+%  }
+
+%\DeclareDocumentCommand\Caption{om}
+%  {\marginnote{\parbox{\marginparwidth}{%
+%      \captionsetup[figure]{labelformat=empty}
+%    \IfNoValueTF{#1}{\captionof{figure}{#2}}{\captionof{figure}[#1]{#2}}
+%      }%
+%    }%
+%  }
+
 \titleformat{\chapter}[display]
-{\bfseries\Large}
-{\filleft\MakeUppercase{\chaptertitlename} \Huge\thechapter}
-{4ex}
-{\titlerule
-\vspace{2ex}%
-\filright}
-[\vspace{2ex}%
-\titlerule]
+{\Huge\normalfont\sffamily}{}{2pc}  
+{\setlength\mylen{0pt}%
+	\addtolength\mylen{\marginparwidth}%
+	\addtolength\mylen{\marginparsep}\raggedleft
+}
+[\vspace{-20pt}%
+{%
+	\begin{adjustwidth}{}{-\mylen}
+		\makebox[\linewidth][r]{%
+			\rule{\dimexpr\titlewidth+\mylen\relax}{0.4pt}%
+		}%
+	\end{adjustwidth}%
+}%
+]
+\titlespacing*{\chapter}{0pt}{1cm}{7cm}
 
-\titleformat{\section}
-{
-\vspace{.8ex}%
-\normalfont\bfseries}
-{\thesection.}{.5em}{}
-
-\titleformat{\subsection}
-{
-\vspace{.8ex}%
-\normalfont\itshape\bfseries}
-{\thesubsection}{.5em}{}
-
+%\renewcommand\chaptermark[1]{\markboth{#1}{}}
+%
+%\fancypagestyle{plain}{%
+%	\fancyhf{}
+%	\fancyfoot[OR]{\sffamily\small\MakeUppercase{\leftmark}~~\oldstylenums{\thepage}}
+%	\renewcommand{\headrulewidth}{0pt}
+%	\renewcommand{\footrulewidth}{0pt}
+%	\fancyfootoffset[OR]{\dimexpr\marginparsep+\marginparwidth\relax}
+%}
+%
+%\fancyhf{}
+%\fancyfootoffset[OR]{\dimexpr\marginparsep+\marginparwidth\relax}
+%\fancyfootoffset[EL]{\dimexpr\marginparsep+\marginparwidth\relax}
+%\fancyfoot[OR]{\small\sffamily\MakeUppercase{\leftmark}~~\oldstylenums{\thepage}}
+%\fancyfoot[EL]{\small\sffamily\oldstylenums{\thepage}~~\MakeUppercase{\rightmark}}
+%\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0pt}
+%\pagestyle{fancy}
+%
+%\renewcommand\chaptermark[1]{\markboth{#1}{}}
+%\renewcommand\sectionmark[1]{\markright{#1}}
