@@ -1,17 +1,9 @@
 \usepackage{calc}
 \usepackage{ifthen}
 \newcommand{\nobs}{\nobreakspace}
-
-%\makeatletter
-%\newcommand\puntini[1]{%
-%\ifmmode\expandafter\@firstoftwo\else
-%\expandafter\@secondoftwo\fi
-%{\makebox[\widthof{$#1$}]}{\makebox[\widthof{#1}]}{\dotfill}}
-%\makeatother
 \newboolean{puntinisi}
 \newcommand{\stampapuntini}{\setboolean{puntinisi}{true}}
 \newcommand{\nonstampapuntini}{\setboolean{puntinisi}{false}}
-
 \makeatletter
 \newcommand\puntini[1]{%
 \ifthenelse{\boolean{puntinisi}}{%

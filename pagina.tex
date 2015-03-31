@@ -1,16 +1,14 @@
 \usepackage{indentfirst}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\fancyhf{}
+\fancyhead{}
+\fancyfoot{}
 \renewcommand{\chaptermark}[1]{%
 \markboth{\ifnum\value{chapter}>0 \thechapter. \fi#1}
 {\ifnum\value{section}>0 \thechapter. \fi#1}}
-%\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-%\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
-
 \fancyfoot[C]{\bfseries\thepage}
-\fancyhead[L]{\bfseries\rightmark}
-\fancyhead[R]{\bfseries\leftmark}
+\fancyhead[R]{\bfseries\rightmark}
+\fancyhead[L]{\bfseries\leftmark}
 \renewcommand{\headrulewidth}{0.5pt}
 \renewcommand{\footrulewidth}{0pt}
 \addtolength{\headheight}{0.5pt}
