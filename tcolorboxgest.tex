@@ -87,23 +87,23 @@ overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includeg
 \newtcbtheorem [number within=chapter] {teoremat}{Teorema}{teostyle}{}
 
 \NewTColorBox[auto counter,number within=section]{exercise}{+O{}}{%
-	enhanced,colframe=white,colback=white,coltitle=black,
-	fonttitle=\bfseries,
-    title={Esercizio~\thetcbcounter:},
-		label={esercizio@\thetcbcounter},
-		attach title to upper=\quad,
+	enhanced,colframe=white,colback=white,coltitle=black,%
+	fonttitle=\bfseries,%
+    title={Esercizio~\thetcbcounter:},%
+		label={esercizio@\thetcbcounter},%
+		attach title to upper=\quad,%
 		after upper={\par\hfill\textcolor{black}%
-			{\itshape Soluzione a pagina~\pageref{solution@\thetcbcounter}}},
-		lowerbox=ignored,
-		savelowerto=solutions/exercise-\thetcbcounter.tex,
-		record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},
-		#1
-	}
+		{\itshape Soluzione a pagina~\pageref{solution@\thetcbcounter}}},%
+		lowerbox=ignored,%
+		savelowerto=solutions/exercise-\thetcbcounter.tex,%
+		record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},%
+		#1}%
 	\NewTotalTColorBox{\solution}{mm}{%
-		enhanced,colframe=white,colback=white,coltitle=black,
-		fonttitle=\bfseries,
-        title={Soluzione delle Esercizio~\ref{esercizio@#1} di pagina~\pageref{esercizio@#1}:},
-			phantomlabel={solution@#1},
-			attach title to upper=\par,
-		}{\input{#2}}
+		enhanced,colframe=white,colback=white,coltitle=black,%
+		fonttitle=\bfseries,%
+        title={Soluzione dell'esercizio~\ref{esercizio@#1} di pagina~\pageref{esercizio@#1}:},%
+			phantomlabel={solution@#1},%
+			attach title to upper=\par,%
+		}{\input{#2}}%
 		\tcbset{no solution/.style={no recording,after upper=}}
+		
