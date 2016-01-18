@@ -1,5 +1,6 @@
 \usepackage{tcolorbox}
 \tcbuselibrary{theorems}
+\tcbuselibrary{listings}
 \tcbuselibrary{skins,xparse}
 \tcbuselibrary{breakable}
 
@@ -24,6 +25,16 @@ esestyle/.style={enhanced,
                   colframe=white,
                  leftrule=12mm,
                  overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={sixpointed stars},pattern color=orange] at (frame.west) {}; }},
+cesestyle/.style={enhanced,
+	breakable,
+	colback=white,
+	colbacktitle=red!20,
+	coltitle=black,
+	fonttitle=\bfseries\upshape,
+	separator sign={.},
+	colframe=white,
+	leftrule=12mm,
+	overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={sixpointed stars},pattern color=orange] at (frame.west) {}; }},                
 attstyle/.style={enhanced,
                   breakable,
                    colback=white,
@@ -77,8 +88,15 @@ teostyle/.style={enhanced,
 }
 \newtcolorbox{lattention}{breakable,enhanced,arc=0mm,colback=gray!5,colframe=gray,leftrule=12mm,%
 overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includegraphics[width=8mm]{0022}}; }}
+\makeatletter
+% add tcblistings to \jobname.lol (list of listings)
+\tcbset{
+	addtolol/.style={list entry={\kvtcb@title},add to list={lol}{subsection}},
+}
+\makeatother
 \newtcbtheorem [number within=chapter] {definizionet}{Definizione}{defstyle}{}
-\newtcbtheorem [number within=chapter,crefname={esempio}{esempio},Crefname={Esempio}{Esempio}]{esempiot}{Esempio}{esestyle}{exa}
+\newtcbtheorem [number within=chapter,crefname={esempio}{esempio},Crefname={Esempio}{Esempio}, list inside=thm]{esempiot}{Esempio}{esestyle}{exa}
+\newtcbtheorem [number within=chapter,crefname={cesempio}{cesempio},Crefname={CEsempio}{CEsempio}, list inside=thm]{cesempiot}{Contro esempio}{attstyle}{exa}
 \newtcbtheorem [number within=chapter]{attenzionet}{Attenzione}{attstyle}{}
 \newtcbtheorem [number within=chapter] {osservazionet}{Osservazione}{ossstyle}{}
 \newtcbtheorem [number within=chapter] {procedurat}{Procedura}{procstyle}{}
