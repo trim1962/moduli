@@ -117,7 +117,7 @@ overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includeg
 		record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},%
 		#1}%
 	\NewTotalTColorBox{\solution}{mm}{%
-		enhanced,colframe=white,colback=white,coltitle=black,%
+		enhanced,colframe=white,colback=white,coltitle=black,breakable,%
 		fonttitle=\bfseries,%
         title={Soluzione dell'esercizio~\ref{esercizio@#1} di pagina~\pageref{esercizio@#1}:},%
 			phantomlabel={solution@#1},%
