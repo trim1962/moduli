@@ -1,8 +1,11 @@
 \usepackage{tcolorbox}
+ 
 \tcbuselibrary{theorems}
 \tcbuselibrary{listings}
 \tcbuselibrary{skins,xparse}
 \tcbuselibrary{breakable}
+%\tcbuselibrary{hooks}
+%\tcbuselibrary{vignette}
 
 \tcbset{
 defstyle/.style={enhanced,
@@ -85,7 +88,19 @@ teostyle/.style={enhanced,
                   colframe=white,
                  leftrule=12mm,
                  overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={grid},pattern color=cyan] at (frame.west) {}; }},                  
+fuestyle/.style={enhanced,
+	breakable,
+	colback=white,
+%	colback=green!5,
+	%coltitle=black,
+	fonttitle=\bfseries\upshape,
+	separator sign={.},
+	colframe=green!35!black,
+%	leftrule=12mm,
+	adjusted title=top,
+	sidebyside}
 }
+
 \newtcolorbox{lattention}{breakable,enhanced,arc=0mm,colback=gray!5,colframe=gray,leftrule=12mm,%
 overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includegraphics[width=8mm]{0022}}; }}
 \makeatletter
@@ -96,14 +111,15 @@ overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includeg
 \makeatother
 %\newtcbtheorem [number within=chapter]{esempiot}{Esercizio}{esestyle}{}
 \newtcbtheorem [number within=chapter] {definizionet}{Definizione}{defstyle}{}
-\newtcbtheorem [number within=chapter,crefname={esempio}{esempio},Crefname={Esempio}{Esempio}, list inside=thm]{esempiot}{Esempio}{esestyle}{exa}
-\newtcbtheorem [number within=chapter,crefname={cesempio}{cesempio},Crefname={CEsempio}{CEsempio}, list inside=cthm]{cesempiot}{Contro esempio}{attstyle}{exa}
+\newtcbtheorem [number within=section,crefname={esempio}{esempio},Crefname={Esempio}{Esempio}, list inside=thm]{esempiot}{Esempio}{esestyle}{exa}
+\newtcbtheorem [number within=section,crefname={cesempio}{cesempio},Crefname={CEsempio}{CEsempio}, list inside=cthm]{cesempiot}{Contro esempio}{attstyle}{exa}
 \newtcbtheorem [number within=chapter]{attenzionet}{Attenzione}{attstyle}{}
 \newtcbtheorem [number within=chapter] {osservazionet}{Osservazione}{ossstyle}{}
 \newtcbtheorem [number within=chapter] {procedurat}{Procedura}{procstyle}{}
 
 \newtcbtheorem [number within=chapter] {principiot}{Principio}{princstyle}{}
 \newtcbtheorem [number within=chapter] {teoremat}{Teorema}{teostyle}{}
+\newtcbtheorem [number within=section,crefname={tabella}{tabelle},Crefname={Tabella}{Tabelle}, list inside=sfnz]{funzionet}{Tabella}{fuestyle}{exa}
 
 \NewTColorBox[auto counter,number within=section]{exercise}{+O{}}{%
 	enhanced,colframe=white,colback=white,coltitle=black,%
@@ -125,5 +141,6 @@ overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includeg
 			attach title to upper=\par,%
 		}{\input{#2}}%
 		\tcbset{no solution/.style={no recording,after upper=}}
-		
+
+
 \usepackage{morewrites}

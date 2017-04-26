@@ -1,23 +1,49 @@
-%\usepackage{cmap}
 \usepackage{amsmath}
 \usepackage{amsthm}
-
-%\usepackage[p,osf]{cochineal}
-\usepackage[T1]{fontenc}
-%\usepackage[p,osf]{cochineal}
-%\usepackage[varqu,varl,var0]{inconsolata}
-%\usepackage[scale=.95,type1]{cabin}
-%\usepackage[cochineal,bigdelims,cmintegrals,vvarbb]{newtxmath}
-%	\usepackage[cal=boondoxo]{mathalfa}
-\usepackage{lmodern}
-\usepackage[utf8]{inputenc}
-\usepackage[italian]{babel}
-
-%\usepackage{cfr-lm}
-%\usepackage{gensymb}
 \usepackage{amssymb}
-%\usepackage{isomath}
-\usepackage[final]{microtype}
+\usepackage{ifluatex}
+\ifluatex
+% Lua(La)TeX
+\usepackage[italian]{babel}
+%\usepackage{polyglossia}   
+%\setmainlanguage[spelling=new,babelshorthands=true]{german}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage[]{unicode-math} 
+\unimathsetup{math-style=TeX}
+\setmainfont[Ligatures=TeX]{Constantia} 
+\setsansfont{Calibri}
+\setmonofont{Consolas}
+\setmathrm{Cambria Math}
+\setmathfont{Cambria Math}
+\else
+%default: pdf(La)TeX
+\usepackage[italian]{babel}
+\usepackage{lmodern} % load vector font
+\usepackage[T1]{fontenc} % font encoding
+\usepackage[utf8]{inputenc} % input encoding
+\fi
+
+\usepackage[babel=true]{microtype}
+
+
+
+
+
+
+
+
+
+
+%\usepackage{cmap}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage[T1]{fontenc}
+%\usepackage{lmodern}
+%\usepackage[utf8]{inputenc}
+%\usepackage[italian]{babel}
+%\usepackage{amssymb}
+%\usepackage[final]{microtype}
 \usepackage{geometry}
 
 \geometry{top=2cm,bottom=2cm,left=2cm,right=2cm}
