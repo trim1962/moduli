@@ -111,36 +111,41 @@ overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includeg
 \makeatother
 %\newtcbtheorem [number within=chapter]{esempiot}{Esercizio}{esestyle}{}
 \newtcbtheorem [number within=chapter] {definizionet}{Definizione}{defstyle}{}
-\newtcbtheorem [number within=section,crefname={esempio}{esempio},Crefname={Esempio}{Esempio}, list inside=thm]{esempiot}{Esempio}{esestyle}{exa}
+
+\newtcbtheorem [number within=section,crefname={esempio}{esempio},Crefname={Esempio}{Esempio},list inside=thm]{esempiot}{Esempio}{esestyle}{exa}
+
 \newtcbtheorem [number within=section,crefname={cesempio}{cesempio},Crefname={CEsempio}{CEsempio}, list inside=cthm]{cesempiot}{Contro esempio}{attstyle}{exa}
+
 \newtcbtheorem [number within=chapter]{attenzionet}{Attenzione}{attstyle}{}
 \newtcbtheorem [number within=chapter] {osservazionet}{Osservazione}{ossstyle}{}
 \newtcbtheorem [number within=chapter] {procedurat}{Procedura}{procstyle}{}
 
 \newtcbtheorem [number within=chapter] {principiot}{Principio}{princstyle}{}
 \newtcbtheorem [number within=chapter] {teoremat}{Teorema}{teostyle}{}
+
 \newtcbtheorem [number within=section,crefname={tabella}{tabelle},Crefname={Tabella}{Tabelle}, list inside=sfnz]{funzionet}{Tabella}{fuestyle}{exa}
 
 \NewTColorBox[auto counter,number within=section]{exercise}{+O{}}{%
-	enhanced,colframe=white,colback=white,coltitle=black,%
-	fonttitle=\bfseries,%
-    title={Esercizio~\thetcbcounter:},%
-		label={esercizio@\thetcbcounter},%
-		attach title to upper=\quad,%
-		after upper={\par\hfill\textcolor{black}%
-		{\itshape Soluzione a pagina~\pageref{solution@\thetcbcounter}}},%
-		lowerbox=ignored,%
-		savelowerto=solutions/exercise-\thetcbcounter.tex,%
-		record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},%
-		#1}%
-	\NewTotalTColorBox{\solution}{mm}{%
-		enhanced,colframe=white,colback=white,coltitle=black,breakable,%
-		fonttitle=\bfseries,%
-        title={Soluzione dell'esercizio~\ref{esercizio@#1} di pagina~\pageref{esercizio@#1}:},%
-			phantomlabel={solution@#1},%
-			attach title to upper=\par,%
-		}{\input{#2}}%
-		\tcbset{no solution/.style={no recording,after upper=}}
+enhanced,colframe=white,colback=white,coltitle=black,%
+fonttitle=\bfseries,%
+title={Esercizio~\thetcbcounter:},%
+label={esercizio@\thetcbcounter},%
+attach title to upper=\quad,%
+after upper={\par\hfill\textcolor{black}%
+{\itshape Soluzione a pagina~\pageref{solution@\thetcbcounter}}},%
+lowerbox=ignored,%
+savelowerto=solutions/exercise-\thetcbcounter.tex,%
+record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},%
+#1}%
+
+\NewTotalTColorBox{\solution}{mm}{%
+enhanced,colframe=white,colback=white,coltitle=black,breakable,%
+fonttitle=\bfseries,%
+title={Soluzione dell'esercizio~\ref{esercizio@#1} di pagina~\pageref{esercizio@#1}:},%
+	phantomlabel={solution@#1},%
+	attach title to upper=\par,%
+}{\input{#2}}%
+\tcbset{no solution/.style={no recording,after upper=}}
 
 
 \usepackage{morewrites}

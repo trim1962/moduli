@@ -1,34 +1,39 @@
 %italianizziomo gli operatori
 
-\let\sin\relax % evitiamo un messaggio di avviso
-\DeclareMathOperator{\sin}{sin}
+%\let\sin\relax % evitiamo un messaggio di avviso
+%\DeclareMathOperator{\sin}{sin}
 
-\let\arcsin\relax % evitiamo un messaggio di avviso
-\DeclareMathOperator{\arcsin}{arcsin}
+%\let\arcsin\relax % evitiamo un messaggio di avviso
+%\DeclareMathOperator{\arcsin}{arcsin}
 
-\let\tan\relax % evitiamo un messaggio di avviso
-\DeclareMathOperator{\tan}{tan}
+%\let\tan\relax % evitiamo un messaggio di avviso
+%\DeclareMathOperator{\tan}{tan}
 
-\let\arctan\relax % evitiamo un messaggio di avviso
-\DeclareMathOperator{\arctan}{arctan}
+%\let\arctan\relax % evitiamo un messaggio di avviso
+%\DeclareMathOperator{\arctan}{arctan}
 
-\let\cot\relax % evitiamo un messaggio di avviso
-\DeclareMathOperator{\cot}{cotg}
-
-
+%\let\cot\relax % evitiamo un messaggio di avviso
+%\DeclareMathOperator{\cot}{cotg}
+%\let\Log\relax % evitiamo un messaggio di avviso
+%\DeclareMathOperator{\Log}{Log}
+%\let\ln\relax % evitiamo un messaggio di avviso
+%\DeclareMathOperator{\ln}{ln}
 \DeclareMathOperator{\arccotg}{arccotg}
 %\DeclareMathOperator{\sec}{sec}
 \DeclareMathOperator{\cosec}{cosec}
 
 \providecommand{\abs}[1]{\lvert#1\rvert}
-\providecommand{\norm}[1]{\lVert#1\rVert} 
+\providecommand{\norm}[1]{\lVert#1\rVert}
+%operatore derivata
+\newcommand{\OpD}[1]{D\left[#1\right]} 
 %\newcommand{\gradi}{\ensuremath{^\circ}}
 %\newcommand{\gradi}{\ensuremath{\degree}}
 %\newcommand{\minuti}{\ensuremath{\arcminute}}
 \newcommand{\PA}[1]{\boldsymbol{\mathcal{#1}}}
 \newcommand{\PDA}{\PA{P}}
+
 \newcommand{\numberset}[1]{\mathbb{#1}}
-%\newcommand{\numberset}[1]{\boldsymbol{\mathbb{#1}}}
+
 \newcommand{\Ni}{\numberset{N}}
 \newcommand{\Nz}{\numberset{N}^{}_{0}}
 \newcommand{\Z}{\numberset{Z}}
@@ -38,8 +43,8 @@
 \newcommand{\Qp}{\numberset{Q^{+}}}
 \newcommand{\Qn}{\numberset{Q^{-}}}
 \newcommand{\R}{\numberset{R}}
-\newcommand{\Rp}{\numberset{R^{+}}}
-\newcommand{\Rn}{\numberset{R^{-}}}
+\newcommand{\Rpos}{\numberset{R^{+}}}
+\newcommand{\Rneg}{\numberset{R^{-}}}
 \newcommand{\nq}{\ensuremath{\mathbb{Q}}}
 \newcommand{\bld}[1]{\mbox{\boldmath $#1$}}
 \newcommand{\C}{\numberset{C}}
@@ -48,6 +53,7 @@
 		#1\colon & #2 & {}\to{}     & #3 \\
 		& #4 & {}\mapsto{} & #5
 \end{array}}
+\newcommand{\funzione}[3]{#1\colon #2\to{}#3}
 %spazi fantasma
 %\newcommand{\spa}{\phantom{1}}
 %\let\origcleardoublepage\cleardoublepage
