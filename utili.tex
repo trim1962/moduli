@@ -13,11 +13,17 @@
 {\makebox[\widthof{$#1$}]}{\makebox[\widthof{#1}+15pt]}{\dotfill}}{#1}}
 \makeatother
 % % % % % % % tasti calcolatrice
-\newcommand{\tasto}[1]{\tikz[baseline=-.5ex]\node[rectangle,draw,minimum height=.5cm,minimum width=1cm, rounded corners] {#1};}
+\newcommand{\tasto}[1]{\tikz[baseline=-.5ex]
+	\node[fill=white,drop shadow={shadow xshift=0.5ex,shadow yshift=-0.5ex,fill=black,opacity=0.75},rectangle,draw,minimum height=.6cm,minimum width=1.2cm, rounded corners=2.0pt,inner sep=1pt,font=\sffamily] {#1};
+}
 \newcommand{\tastoshift}{\tasto{shift}}
 \newcommand{\tastopgreco}{\tastoshift\tasto{$\pi$}}
 \newcommand{\tastopiu}{\tasto{$+$}}
 \newcommand{\tastomeno}{\tasto{$-$}}
+\newcommand{\tastoparentesisin}{\tasto{$($}}
+\newcommand{\tastoparentesides}{\tasto{$)$}}
+\newcommand{\tastoquadrato}{\tasto{$x^2$}}
+\newcommand{\tastoradicequadrata}{\tasto{$\sqrt{\phantom{x^2}}$}}
 \newcommand{\tastoper}{\tasto{$\times$}}
 \newcommand{\tastodiv}{\tasto{$\div$}}
 \newcommand{\tastouguale}{\tasto{$=$}}

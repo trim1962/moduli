@@ -2,7 +2,7 @@
 \usepackage{xcolor}
 \definecolor{light-gray}{gray}{0.95}
 \newlength\chapnumb
-\setlength\chapnumb{3cm}
+\setlength\chapnumb{4cm}
 
 \titleformat{\chapter}[block] {
 	\normalfont\sffamily}{}{0pt} {
@@ -25,13 +25,25 @@
 		\rule{\dimexpr\textwidth-\chapnumb\relax}{0.4pt}}}
 \usepackage{titletoc}
 \usepackage{textcase}
+%\titlecontents{chapter}[0pc]
+%{\addvspace {6pt}}
+%{\makebox [6em][l]{\textbf{Capitolo~\thecontentslabel}} \textbf}
+%{\textbf}{\hfill \MakeTextUppercase{\textbf{\thecontentspage }}\\
+%	[ -.75em]\rule{\textwidth}{.4pt}}
+%\titlecontents{section }[0pc]
+%{}
+%{\makebox [6em][l]{\thecontentslabel }}
+%{}
+%{\hfill \thecontentspage}
 \titlecontents{chapter}[0pc]
-{\addvspace {6pt}}
-{\makebox [6em][l]{\textbf{Capitolo~\thecontentslabel}} \textbf}
-{\textbf}{\hfill \MakeTextUppercase{\textbf{\thecontentspage }}\\
-	[ -.75em]\rule{\textwidth}{.4pt}}
-\titlecontents{section }[0pc]
+{\addvspace{6pt}}
+{\makebox[6em][l]{\textbf{Capitolo~\thecontentslabel}}
+	\textbf}
+{\textbf}
+{\hfill\MakeTextUppercase{\textbf{\thecontentspage}}
+	\\[-.75em]\rule{\textwidth}{.4pt}}
+\titlecontents{section}[0pc]
 {}
-{\makebox [6em][l]{\thecontentslabel }}
+{\makebox[6em][l]{\thecontentslabel}}
 {}
-{\hfill \thecontentspage}
+{\hfill\thecontentspage}
