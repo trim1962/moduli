@@ -1,0 +1,117 @@
+\ExplSyntaxOn
+\NewDocumentCommand{\additiontable}{m}
+{% #1 is the base
+	\induktio_make_table:nnn { #1 } { + } { $+$ }
+}
+\NewDocumentCommand{\multiplicationtable}{m}
+{% #1 is the base
+	\induktio_make_table:nnn { #1 } { * } { $\times$ }
+}
+
+\tl_new:N \l__induktio_table_body_tl
+\int_new:N \l__induktio_row_number_int
+
+\cs_new_protected:Npn \induktio_make_table:nnn #1 #2 #3
+{
+	\int_zero:N \l__induktio_row_number_int
+	% add the operation symbol
+	\tl_set:Nn \l__induktio_table_body_tl { #3 }
+	% add the first row
+	\int_step_inline:nnnn { 0 } { 1 } { #1-1 }
+	{ \tl_put_right:Nx \l__induktio_table_body_tl { & \int_to_Base:nn { ##1 } { #1 } } }
+	\tl_put_right:Nn \l__induktio_table_body_tl { \\ \hline }
+	% add the subsequent rows
+	\int_step_inline:nnnn { 0 } { 1 } { #1-1 }
+	{
+		% first column    
+		\tl_put_right:Nx \l__induktio_table_body_tl { \int_to_Base:nn { ##1 } { #1 } }
+		% subsequent columns
+		\int_step_inline:nnnn { 0 } { 1 } { #1-1 }
+		{
+			\tl_put_right:Nx \l__induktio_table_body_tl
+			{
+				& \int_to_Base:nn { ####1 #2 \l__induktio_row_number_int } { #1 }
+			}
+		}
+		\tl_put_right:Nn \l__induktio_table_body_tl { \\ \hline }
+		\int_incr:N \l__induktio_row_number_int
+	}
+	% print the table
+	\begin{tabular}{c|*{#1}{O|}}
+		\tl_use:N \l__induktio_table_body_tl
+	\end{tabular}
+}
+\ExplSyntaxOff
+
+
+%https://tex.stackexchange.com/questions/210670/addition-and-multiplication-tables
+%\documentclass{article}
+%\usepackage[margin=1in]{geometry}
+%\usepackage{array}
+%\usepackage{xparse}
+%
+%\newcolumntype{O}{>{\centering\arraybackslash}p{1.5em}}
+%
+%\ExplSyntaxOn
+%\NewDocumentCommand{\additiontable}{m}
+%{% #1 is the base
+%	\induktio_make_table:nnn { #1 } { + } { $+$ }
+%}
+%\NewDocumentCommand{\multiplicationtable}{m}
+%{% #1 is the base
+%	\induktio_make_table:nnn { #1 } { * } { $\times$ }
+%}
+%
+%\tl_new:N \l__induktio_table_body_tl
+%\int_new:N \l__induktio_row_number_int
+%
+%\cs_new_protected:Npn \induktio_make_table:nnn #1 #2 #3
+%{
+%	\int_zero:N \l__induktio_row_number_int
+%	% add the operation symbol
+%	\tl_set:Nn \l__induktio_table_body_tl { #3 }
+%	% add the first row
+%	\int_step_inline:nnnn { 0 } { 1 } { #1-1 }
+%	{ \tl_put_right:Nx \l__induktio_table_body_tl { & \int_to_Base:nn { ##1 } { #1 } } }
+%	\tl_put_right:Nn \l__induktio_table_body_tl { \\ \hline }
+%	% add the subsequent rows
+%	\int_step_inline:nnnn { 0 } { 1 } { #1-1 }
+%	{
+%		% first column    
+%		\tl_put_right:Nx \l__induktio_table_body_tl { \int_to_Base:nn { ##1 } { #1 } }
+%		% subsequent columns
+%		\int_step_inline:nnnn { 0 } { 1 } { #1-1 }
+%		{
+%			\tl_put_right:Nx \l__induktio_table_body_tl
+%			{
+%				& \int_to_Base:nn { ####1 #2 \l__induktio_row_number_int } { #1 }
+%			}
+%		}
+%		\tl_put_right:Nn \l__induktio_table_body_tl { \\ \hline }
+%		\int_incr:N \l__induktio_row_number_int
+%	}
+%	% print the table
+%	\begin{tabular}{c|*{#1}{O|}}
+%		\tl_use:N \l__induktio_table_body_tl
+%	\end{tabular}
+%}
+%\ExplSyntaxOff
+%
+%\begin{document}
+%	
+%	\noindent
+%	\additiontable{4}\qquad\multiplicationtable{4}
+%	
+%	\bigskip
+%	
+%	\footnotesize
+%	
+%	\noindent
+%	\additiontable{16}
+%	
+%	\bigskip
+%	
+%	\noindent
+%	\multiplicationtable{16}
+%	
+%\end{document}
