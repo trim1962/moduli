@@ -25,25 +25,17 @@
 		\rule{\dimexpr\textwidth-\chapnumb\relax}{0.4pt}}}
 \usepackage{titletoc}
 \usepackage{textcase}
-%\titlecontents{chapter}[0pc]
-%{\addvspace {6pt}}
-%{\makebox [6em][l]{\textbf{Capitolo~\thecontentslabel}} \textbf}
-%{\textbf}{\hfill \MakeTextUppercase{\textbf{\thecontentspage }}\\
-%	[ -.75em]\rule{\textwidth}{.4pt}}
-%\titlecontents{section }[0pc]
-%{}
-%{\makebox [6em][l]{\thecontentslabel }}
-%{}
-%{\hfill \thecontentspage}
-\titlecontents{chapter}[0pc]
-{\addvspace{6pt}}
-{\makebox[6em][l]{\textbf{Capitolo~\thecontentslabel}}
-	\textbf}
-{\textbf}
-{\hfill\MakeTextUppercase{\textbf{\thecontentspage}}
-	\\[-.75em]\rule{\textwidth}{.4pt}}
-\titlecontents{section}[0pc]
-{}
-{\makebox[6em][l]{\thecontentslabel}}
-{}
-{\hfill\thecontentspage}
+\titlecontents{section}
+[5em]{}
+{\contentslabel{4em}\hspace*{-1em}}{}
+{\titlerule*[1pc]{.}\contentspage}
+\titlecontents{figure}
+[5em]{}
+{\contentslabel{4em}\hspace*{-1em}}{}
+{\titlerule*[1pc]{.}\contentspage}
+\titlecontents{table}
+[5em]{}
+{\contentslabel{4em}\hspace*{-1em}}{}
+{\titlerule*[1pc]{.}\contentspage}
+\usepackage[titletoc,toc,title,header]{appendix}
+\renewcommand{\appendixtocname}{Appendice}
