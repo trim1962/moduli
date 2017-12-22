@@ -1,6 +1,7 @@
 \usepackage{tcolorbox}
  
 \tcbuselibrary{theorems}
+\usepackage{chngcntr} 
 \tcbuselibrary{listings}
 \tcbuselibrary{skins,xparse}
 \tcbuselibrary{breakable}
@@ -104,7 +105,7 @@ fuestyle/.style={enhanced,
 \newtcolorbox{lattention}{breakable,enhanced,arc=0mm,colback=gray!5,colframe=gray,leftrule=12mm,%
 overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includegraphics[width=8mm]{0022}}; }}
 \makeatletter
-% add tcblistings to \jobname.lol (list of listings)
+% add tcblistings to \left( .lol (list of listings)
 \tcbset{
 	addtolol/.style={list entry={\kvtcb@title},add to list={lol}{subsection}},
 }
