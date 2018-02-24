@@ -21,6 +21,7 @@ defstyle/.style={enhanced,
                  overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={bricks},pattern color=green] at (frame.west) {}; }},
 esestyle/.style={enhanced,
                   breakable,
+%                  lines before break=15,
                    colback=white,
                     colbacktitle=orange!20,
                     coltitle=black,
@@ -132,7 +133,8 @@ fonttitle=\bfseries,%
 title={Esercizio~\thetcbcounter:},%
 label={esercizio@\thetcbcounter},%
 attach title to upper=\quad,%
-after upper={\par\hfill\textcolor{black}%
+%after upper={\par\hfill\textcolor{black}%
+after upper={\hfill\textcolor{black}%
 {\itshape Soluzione a pagina~\pageref{solution@\thetcbcounter}}},%
 lowerbox=ignored,%
 savelowerto=solutions/exercise-\thetcbcounter.tex,%
