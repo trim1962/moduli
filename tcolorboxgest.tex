@@ -1,6 +1,8 @@
 \usepackage{tcolorbox}
  
 \tcbuselibrary{theorems}
+\let\counterwithout\relax
+\let\counterwithin\relax
 \usepackage{chngcntr} 
 \tcbuselibrary{listings}
 \tcbuselibrary{skins,xparse}
@@ -133,9 +135,9 @@ fonttitle=\bfseries,%
 title={Esercizio~\thetcbcounter:},%
 label={esercizio@\thetcbcounter},%
 attach title to upper=\quad,%
-%after upper={\par\hfill\textcolor{black}%
-after upper={\hfill\textcolor{black}%
-{\itshape Soluzione a pagina~\pageref{solution@\thetcbcounter}}},%
+after upper={\par\hfill\textcolor{black}%
+%after upper={\hfill\textcolor{black}%
+{\itshape\quad Soluzione a pagina~\pageref{solution@\thetcbcounter}}},%
 lowerbox=ignored,%
 savelowerto=solutions/exercise-\thetcbcounter.tex,%
 record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},%
