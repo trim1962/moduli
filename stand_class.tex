@@ -2,3 +2,5 @@
 \usepackage{standalone}
 %\standaloneconfig{ mode=image|tex }
 \standaloneconfig{mode=buildnew}
+\newcommand{\tabincludestandalone}[2][]{%
+	$\vcenter{\hbox{\includestandalone[#1]{#2}}}$}
