@@ -20,15 +20,23 @@
 \else
 %default: pdf(La)TeX
 \usepackage[italian]{babel}
+%\usepackage{concmath}
+
 %\usepackage{newtxtext,newtxmath}
 
 
-%\usepackage{lmodern} % load vector font
+ % load vector font
 \usepackage[T1]{fontenc} % font encoding
 \usepackage[utf8]{inputenc} % input encoding
-\usepackage{noto}
+%\usepackage{noto}
+\usepackage[largesc]{newtxtext} %
+\usepackage[varqu,varl]{zi4}% inconsolata
+\usepackage{cabin}% sans serif
+\usepackage[vvarbb]{newtxmath}
+\useosf % use oldstyle figures except in math
+
 \fi
 \usepackage[babel=true]{microtype}
 \usepackage{geometry}
-\usepackage{textcomp}
+%\usepackage{textcomp}
 % 10/09/2017 :: 10:16:38 :: \geometry{top=2cm,bottom=2cm,left=2cm,right=2cm}

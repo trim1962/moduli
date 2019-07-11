@@ -1,0 +1,160 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tcolorboxgest}[2019/07/09]
+
+
+\RequirePackage{tcolorbox}
+ 
+\tcbuselibrary{theorems}
+\let\counterwithout\relax
+\let\counterwithin\relax
+\RequirePackage{chngcntr} 
+\tcbuselibrary{listings}
+\tcbuselibrary{skins,xparse}
+\tcbuselibrary{breakable}
+%\tcbuselibrary{hooks}
+%\tcbuselibrary{vignette}
+
+\tcbset{
+defstyle/.style={enhanced,
+                  breakable,
+                   colback=white,
+                    colbacktitle=green!20,
+                    coltitle=black,
+                  fonttitle=\bfseries\upshape,
+                  separator sign={.},
+                  colframe=white,
+                 leftrule=12mm,
+                 overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={bricks},pattern color=green] at (frame.west) {}; }},
+esestyle/.style={enhanced,
+                  breakable,
+%                  lines before break=15,
+                   colback=white,
+                    colbacktitle=orange!20,
+                    coltitle=black,
+                  fonttitle=\bfseries\upshape,
+                  separator sign={.},
+                  colframe=white,
+                 leftrule=12mm,
+                 overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={sixpointed stars},pattern color=orange] at (frame.west) {}; }},
+cesestyle/.style={enhanced,
+	breakable,
+	colback=white,
+	colbacktitle=red!20,
+	coltitle=black,
+	fonttitle=\bfseries\upshape,
+	separator sign={.},
+	colframe=white,
+	leftrule=12mm,
+	overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={sixpointed stars},pattern color=orange] at (frame.west) {}; }},                
+attstyle/.style={enhanced,
+                  breakable,
+                   colback=white,
+                    colbacktitle=red!20,
+                    coltitle=black,
+                  fonttitle=\bfseries\upshape,
+                  separator sign={.},
+                  colframe=white,
+                 leftrule=12mm,
+                 overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={checkerboard},pattern color=red] at (frame.west) {}; }},        
+ossstyle/.style={enhanced,
+                  breakable,
+                   colback=white,
+                    colbacktitle=olive!20,
+                    coltitle=black,
+                  fonttitle=\bfseries\upshape,
+                  separator sign={.},
+                  colframe=white,
+                 leftrule=12mm,
+                  overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={crosshatch dots},pattern color=olive] at (frame.west) {}; }},           
+procstyle/.style={enhanced,
+                  breakable,
+                   colback=white,
+                    colbacktitle=blue!20,
+                    coltitle=black,
+                  fonttitle=\bfseries\upshape,
+                  separator sign={.},
+                  colframe=white,
+                 leftrule=12mm,
+                  overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={fivepointed stars},pattern color=blue!75!black] at (frame.west) {}; }},           
+princstyle/.style={enhanced,
+                  breakable,
+                   colback=white,
+                    colbacktitle=brown!20,
+                    coltitle=black,
+                  fonttitle=\bfseries\upshape,
+                  separator sign={.},
+                  colframe=white,
+                 leftrule=12mm,
+                 overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={north west lines},pattern color=brown] at (frame.west) {}; }}, 
+teostyle/.style={enhanced,
+                  breakable,
+                   colback=white,
+                    colbacktitle=cyan!20,
+                    coltitle=black,
+                  fonttitle=\bfseries\upshape,
+                  separator sign={.},
+                  colframe=white,
+                 leftrule=12mm,
+                 overlay={\node[anchor=north west,rectangle,minimum width=1cm,minimum height=1cm,pattern={grid},pattern color=cyan] at (frame.west) {}; }},                  
+fuestyle/.style={enhanced,
+	breakable,
+	colback=white,
+%	colback=green!5,
+	%coltitle=black,
+	fonttitle=\bfseries\upshape,
+	separator sign={.},
+	colframe=green!35!black,
+%	leftrule=12mm,
+	adjusted title=top,
+	sidebyside}
+}
+
+\newtcolorbox{lattention}{breakable,enhanced,arc=0mm,colback=gray!5,colframe=gray,leftrule=12mm,%
+overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includegraphics[width=8mm]{0022}}; }}
+\makeatletter
+% add tcblistings to \left( .lol (list of listings)
+\tcbset{
+	addtolol/.style={list entry={\kvtcb@title},add to list={lol}{subsection}},
+}
+\makeatother
+%\newtcbtheorem [number within=chapter]{esempiot}{Esercizio}{esestyle}{}
+\newtcbtheorem [number within=chapter] {definizionet}{Definizione}{defstyle}{}
+
+\newtcbtheorem [number within=section,crefname={esempio}{esempio},Crefname={Esempio}{Esempio},list inside=thm]{esempiot}{Esempio}{esestyle}{exa}
+
+\newtcbtheorem [number within=section,crefname={cesempio}{cesempio},Crefname={CEsempio}{CEsempio}, list inside=cthm]{cesempiot}{Contro esempio}{attstyle}{exa}
+
+\newtcbtheorem [number within=chapter]{attenzionet}{Attenzione}{attstyle}{}
+\newtcbtheorem [number within=chapter] {osservazionet}{Osservazione}{ossstyle}{}
+\newtcbtheorem [number within=chapter] {procedurat}{Procedura}{procstyle}{}
+
+\newtcbtheorem [number within=chapter] {principiot}{Principio}{princstyle}{}
+\newtcbtheorem [number within=chapter] {teoremat}{Teorema}{teostyle}{}
+
+\newtcbtheorem [number within=section,crefname={tabella}{tabelle},Crefname={Tabella}{Tabelle}, list inside=sfnz]{funzionet}{Tabella}{fuestyle}{exa}
+
+\NewTColorBox[auto counter,number within=section]{exercise}{+O{}}{%
+enhanced,colframe=white,colback=white,coltitle=black,%
+fonttitle=\bfseries,%
+title={Esercizio~\thetcbcounter:},%
+label={esercizio@\thetcbcounter},%
+attach title to upper=\quad,%
+after upper={\par\hfill\textcolor{black}%
+%after upper={\hfill\textcolor{black}%
+{\itshape\quad Soluzione a pagina~\pageref{solution@\thetcbcounter}}},%
+lowerbox=ignored,%
+savelowerto=solutions/exercise-\thetcbcounter.tex,%
+record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},%
+#1}%
+
+\NewTotalTColorBox{\solution}{mm}{%
+enhanced,colframe=white,colback=white,coltitle=black,breakable,%
+fonttitle=\bfseries,%
+title={Soluzione dell'esercizio~\ref{esercizio@#1} di pagina~\pageref{esercizio@#1}:},%
+	phantomlabel={solution@#1},%
+	attach title to upper=\par,%
+}{\input{#2}}%
+\tcbset{no solution/.style={no recording,after upper=}}
+
+
+\RequirePackage{morewrites}

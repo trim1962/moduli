@@ -1,5 +1,7 @@
-\usepackage{calc}
-\usepackage{ifthen}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{indice}[2019/07/09]
+\RequirePackage{calc}
+\RequirePackage{ifthen}
 %\DeclareTextCommand{\nobreakspace}{T1}{\leavevmode\nobreak\ }
 \newcommand{\nobs}{\nobreakspace}
 \newboolean{puntinisi}
@@ -53,7 +55,7 @@
 		\end{tabular} 
 	\end{center}}
 %todo inizio
-\usepackage[italian,colorinlistoftodos,textwidth=.8\marginparwidth]{todonotes}
+\RequirePackage[italian,colorinlistoftodos,textwidth=.8\marginparwidth]{todonotes}
 
 
 \newcommand{\mytodo}[1][]{%
