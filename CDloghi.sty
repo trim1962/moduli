@@ -1,0 +1,66 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{CDloghi}[2019/07/09]
+\RequirePackage{tkz-euclide}
+\usetkzobj{all}
+
+\RequirePackage{foekfont}
+\RequirePackage{tkz-berge}
+\RequirePackage[T1]{fontenc}
+\newcommand{\Lgrandedue}{
+\begin{tikzpicture}[scale=0.4, label style/.style={font=\fontsize{128}{128}\selectfont}]
+	\tkzInit [ymin=-0.1,ymax=8.1,xmin=-0.1,xmax=8.1] 
+	\tkzClip
+	\tkzDefPoint(0,0){a}
+	\tkzDefPoint(4,0){b}
+	\tkzDefPoint(4,4){c}
+	\tkzDefPoint(0,4){d}
+	\tkzDefPointBy[rotation= center d angle 90](b)
+	\tkzGetPoint{e}
+	\tkzDefPointBy[rotation= center b angle 270](d)
+	\tkzGetPoint{f}
+	\tkzDrawSegments(a,b b,c c,d d,a d,e)
+	\tkzDrawSegments(b,f e,f d,b)
+	\tkzDefMidPoint(d,b) \tkzGetPoint{m}
+	\tkzLabelPoint(m){\fontencoding{T1}\fontfamily{foekfont}\fontsize{42}{42}\selectfont C}
+	\tkzDefMidPoint(d,f) \tkzGetPoint{n}
+	\tkzLabelPoint[rotate=-45](n){\fontencoding{T1}\fontfamily{foekfont}\fontsize{42}{42}\selectfont\MakeUppercase{D}}
+	\end{tikzpicture}
+}
+\newcommand{\polylogo}[2][6]{
+\begin{center}
+% {\centering
+		\begin{tikzpicture}
+		\renewcommand*{\VertexBallColor}{green!50!black}
+		\GraphInit[vstyle=Art]
+		\grComplete[RA=#1]{#2}
+		\end{tikzpicture} %} 
+	\end{center}
+}
+\RequirePackage{tikz,pgfornament,tikzrput}         % altermundus.com/pages/tkz/tikzrput/
+\usetikzlibrary{decorations,decorations.text}  % altermundus.com/pages/tkz/ornament/ 
+\RequirePackage[first=-180, last=180,counter=die]{lcg}
+\newcommand{\timbro}[5]{
+	\newcommand{\fraseuno}{#1}
+	\newcommand{\frasedue}{#2}
+	\newcommand{\frasetre}{#3}
+	\newcommand{\frasequattro}{#4}
+	\newcommand{\frasecinque}{#5}
+	
+	\begin{tikzpicture}
+	
+	\draw[ultra thick] circle[radius=5cm] circle[radius=6cm]  ;
+	\draw[line width=2mm] circle[radius=6.4cm]  ;
+	
+	\path [rotate=210,postaction={decoration={text along path,text format delimiters={|}{|}, text={|\Huge| \fraseuno{\pgfornament[scale=.4,ydelta=-9pt]{2}}\frasedue{\pgfornament[scale=.4,ydelta=-9pt]{2}}\frasetre{\pgfornament[scale=.4,ydelta=-9pt]{2}} \frasequattro{\pgfornament[scale=.4,ydelta=-9pt]{2}}\frasecinque{\pgfornament[scale=.4,ydelta=-9pt]{2}}
+			},
+			text align=fit to path,reverse path}, decorate}]
+	circle[radius=5.2cm] ; 
+	\rput{-20}(1.5,5.2){\pgfornament[scale=.2,symmetry=v]{30}}
+	\rput{20}(-1.5,5.2){\pgfornament[scale=.2,symmetry=v]{20}} 
+	\rand\rput{0}(0,0){\pgfornament[scale=.8,symmetry=v]{30}}
+	\rand\rput{\value{die}}(3,0){\pgfornament[scale=.8,symmetry=v]{20}}
+	\rand\rput{\value{die}}(-3,0){\pgfornament[scale=.8,symmetry=v]{30}}  
+	\rand\rput{\value{die}}(0,3){\pgfornament[scale=.8,symmetry=v]{20}}
+	\rand\rput{\value{die}}(0,-3){\pgfornament[scale=.8,symmetry=v]{30}}  
+	\node[font=\huge] at (0,-5){MATEMATICA} ;   
+	\end{tikzpicture}}
