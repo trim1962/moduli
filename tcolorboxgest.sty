@@ -173,15 +173,9 @@ overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includeg
 	#1
 }
 \NewTotalTColorBox{\solution}{mm}{%
-	enhanced,colframe=red!20!black,colback=yellow!10!white,coltitle=red!40!black,
+	enhanced,colframe=white,colback=white,coltitle=black,
 	fonttitle=\bfseries,
-	underlay={\begin{tcbclipinterior}
-			\shade[inner color=red!50!yellow,outer color=yellow!10!white]
-			(interior.north west) circle (2cm);
-			\draw[help lines,step=5mm,yellow!80!black,shift={(interior.north west)}]
-			(interior.south west) grid (interior.north east);
-	\end{tcbclipinterior}},
-	title={Solution of Exercise~\ref{exercise@#1} on page~\pageref{exercise@#1}:},
+	title={Soluzione dell'esercizio~\ref{exercise@#1} di pagina~\pageref{exercise@#1}:},
 	phantomlabel={solution@#1},
 	attach title to upper=\par,
 }{\input{#2}}
