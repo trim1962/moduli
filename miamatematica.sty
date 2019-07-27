@@ -1,0 +1,57 @@
+\ProvidesPackage{miamatematica}[2019/02/19 Custom Package]
+\RequirePackage{amsmath}
+%funzioni
+\newcommand{\abs}[1]{\left|#1\right|}
+
+%insiemi numerici
+\newcommand{\numberset}[1]{\mathbb{#1}}
+\newcommand{\R}{\numberset{R}}
+\newcommand{\Co}{\numberset{C}}
+\newcommand{\Z}{\numberset{Z}}
+%\makeatletter
+\newcommand*\rel@kern[1]{\kern#1\dimexpr\macc@kerna}
+\newcommand*\widebar[1]{%
+	\begingroup
+	\def\mathaccent##1##2{%
+		\rel@kern{0.8}%
+		\overline{\rel@kern{-0.8}\macc@nucleus\rel@kern{0.2}}%
+		\rel@kern{-0.2}%
+	}%
+	\macc@depth\@ne
+	\let\math@bgroup\@empty \let\math@egroup\macc@set@skewchar
+	\mathsurround\z@ \frozen@everymath{\mathgroup\macc@group\relax}%
+	\macc@set@skewchar\relax
+	\let\mathaccentV\macc@nested@a
+	\macc@nested@a\relax111{#1}%
+	\endgroup
+}
+%\makeatother
+%unità immaginaria
+\providecommand*{\uimm}%
+{j\mkern1mu}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
