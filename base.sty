@@ -21,7 +21,13 @@
 \RequirePackage[italian]{babel}
 \RequirePackage[T1]{fontenc} % font encoding
 \RequirePackage[utf8]{inputenc} % input encoding
-\usepackage{cfr-lm}
+\usepackage[%
+rm={oldstyle=false,proportional=true},%
+sf={oldstyle=true,proportional=true},%
+tt={oldstyle=true,proportional=true,variable=true},%
+qt=false%
+]{cfr-lm}
+\usepackage{textcomp}
 \usepackage{fixcmex}
 \fi
 
