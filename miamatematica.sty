@@ -1,4 +1,4 @@
-\ProvidesPackage{miamatematica}[2019/02/19 Custom Package]
+\ProvidesPackage{miamatematica}[2019/07/27]
 \RequirePackage{amsmath}
 %funzioni
 \newcommand{\abs}[1]{\left|#1\right|}
@@ -29,7 +29,43 @@
 %unità immaginaria
 \providecommand*{\uimm}%
 {j\mkern1mu}
-
+\newcommand{\quadratic}[4][x]{%
+	\FPset\ca{#2}%
+	\FPset\cb{#3}%
+	\FPset\cc{#4}%
+	\ifnum\ca=1
+	\else
+	\ifnum\ca=-1
+	-%
+	\else
+	\ca
+	\fi
+	\fi
+	#1^2%
+	\ifnum\cb=0
+	\else
+	\ifnum\cb>0
+	+%
+	\ifnum\cb=1
+	\else
+	\cb
+	\fi
+	\else
+	\ifnum\cb=-1
+	-%
+	\else
+	\cb
+	\fi
+	\fi
+	#1%
+	\fi
+	\ifnum\cc=0
+	\else
+	\ifnum\cc>0
+	+
+	\fi
+	\cc
+	\fi}
 
 
 
