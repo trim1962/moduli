@@ -1,0 +1,135 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{matesami}[29/12/2019 classe supporto esami]
+
+
+
+
+\newcommand{\verso}[1]{%
+	\ifcase#1
+	\or
+	>
+	\or
+	<
+	\or
+	\leq
+	\or
+	\geq
+	\fi%
+}
+
+\newcommand{\miopolydue}[3]{%
+	\ifnum#1=0\else\semplix{#1}{1}x^2\fi
+	% 24/09/2017 :: 19:03:25 :: 
+	\ifnum#2=0\else\ifnum#2=1 +x\else
+	\ifnum#2>1 +\semplix{#2}{1}x\else
+	\semplix{#2}{1}x\fi\fi\fi
+	\ifnum#3=0\else\ifnum#3>0 +#3\else #3
+	\fi\fi
+}
+
+\newcommand{\miopolyuno}[2]{%
+	\ifnum#1=0\else\semplix{#1}{1}x\fi
+	% 24/09/2017 :: 19:03:25 :: 
+	\ifnum#2=0\else\ifnum#2>0 +#2\else #2
+	\fi\fi
+}
+\newcommand{\piumeno}[1]{
+\ifnum#1=1 +\fi
+\ifnum#1=-1 -\fi
+\ifnum#1>1 +#1\fi
+\ifnum#1<-1 #1\fi
+}
+\newcommand{\piumenox}[1]{
+	\ifnum#1=1 \fi
+	\ifnum#1=-1 -\fi
+	\ifnum#1>1 #1\fi
+	\ifnum#1<-1 #1\fi
+}
+\newcommand{\binomiox}[3][x]{%
+	\FPset\ca{#2}%
+	\FPset\cb{#3}%
+	(\ifnum\ca=1
+	\else
+	\ifnum\ca=-1
+	-%
+	\else
+	\ca
+	\fi
+	\fi
+	#1%
+	\ifnum\cb=0
+	\else
+	\ifnum\cb>0
+	+%
+	\ifnum\cb=1
+	#1
+	\else
+	\cb
+	\fi
+	\else
+	\ifnum\cb=-1
+	-#1
+	\else
+	\cb
+	\fi
+	\fi
+	\fi)}
+
+\newcommand{\quadratobinomiouno}[2]{%
+\left(\piumenox{#1}x\ifnum#2>0 +#2\else #2\fi\right)^2%
+}
+
+\newcommand{\binomiouno}[2]{%
+	\left(\piumenox{#1}x\ifnum#2>0 +#2\else #2\fi\right)%
+}
+\newcommand{\binomiodue}[2]{%
+	\left(#1\piumeno{#2}x\right)%
+}
+
+\newcommand{\difquadrati}[1]{%
+	\left(x+#1\right)\left(x-#1\right)%
+}
+\newcommand{\difquadratidue}[2]{%
+	\left(\piumenox{#1}x+#2\right)\left(\piumenox{#1}x-#2\right)%
+}
+\newcommand{\difquadratitre}[2]{%
+	\left(#1+\semplix{#2}{1}x\right)\left(#1-\semplix{#2}{1}x\right)%
+}
+
+\DeclareMathOperator{\uimm}{j}
+
+\newcommand{\binomiounoim}[2]{%
+	\left(#1\ifnum#2>0 +\semplix{#2}{1}\uimm \else\semplix{#2}{1}\uimm\fi\right)%
+}
+\newcommand{\quadratobinomioim}[2]{%
+	\left(#1\ifnum#2>0 +\semplix{#2}{1}\uimm \else\semplix{#2}{1}\uimm\fi\right)^2%
+}
+\newcommand{\numcomp}[2]{%
+	#1\ifnum#2>0 +\semplix{#2}{1}\uimm \else\semplix{#2}{1}\uimm\fi%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\senintR}[2]{
+	\ifnumcomp{#1}{=}{1}{\ifnumcomp{#2}{=}{1}{0<\alpha<\dfrac{\pi}{2}}{\dfrac{\pi}{2}<\alpha<\pi}.
+	}{ \ifnumcomp{#2}{=}{1}{\dfrac{3}{2}\pi<\alpha<2\pi}{\pi<\alpha<\dfrac{3}{2}\pi}}
+}
+\newcommand{\senintS}[2]{
+	\ifnumcomp{#1}{=}{1}{\ifnumcomp{#2}{=}{1}{\ang{0}<\alpha<\ang{90}}{\ang{90}<\alpha<\ang{180}}.
+	}{ \ifnumcomp{#2}{=}{1}{\ang{270}<\alpha<\ang{360}}{\ang{180}<\alpha<\ang{270}}}
+}
+
+\newcommand{\cosintR}[2]{
+	\ifnumcomp{#1}{=}{1}{\ifnumcomp{#2}{=}{1}{0<\alpha<\dfrac{\pi}{2}}{\dfrac{3}{2}\pi<\alpha<2\pi}.
+	}{ \ifnumcomp{#2}{=}{1}{\dfrac{\pi}{2}<\alpha<\pi}{\pi<\alpha<\dfrac{3}{2}\pi}}
+}
+\newcommand{\cosintS}[2]{
+	\ifnumcomp{#1}{=}{1}{\ifnumcomp{#2}{=}{1}{0<\alpha<\ang{90}}{\ang{270}<\alpha<\ang{360}}.
+	}{ \ifnumcomp{#2}{=}{1}{\ang{90}<\alpha<\ang{180}}{\ang{180}<\alpha<\ang{270}}}
+}
+\newcommand{\tanintR}[2]{
+	\ifnumcomp{#1}{=}{1}{\ifnumcomp{#2}{=}{1}{0<\alpha<\dfrac{\pi}{2}}{\pi<\alpha<\dfrac{3}{2}\pi}.
+	}{ \ifnumcomp{#2}{=}{1}{\dfrac{\pi}{2}<\alpha<\pi}{\dfrac{3}{2}\pi<\alpha<2\pi}}
+}
+\newcommand{\tanintS}[2]{
+	\ifnumcomp{#1}{=}{1}{\ifnumcomp{#2}{=}{1}{0<\alpha<\ang{90}}{\ang{180}<\alpha<\ang{270}}.
+	}{ \ifnumcomp{#2}{=}{1}{\ang{90}<\alpha<\ang{180}}{\ang{270}<\alpha<\ang{360}}}
+}

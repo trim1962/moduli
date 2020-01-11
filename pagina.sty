@@ -10,3 +10,18 @@
 \fancyfoot{}
 \fancyfoot[L]{\bfseries\today}
 \fancyfoot[R]{\bfseries\DTMcurrenttime}
+\newcommand{\fncyfront}{%
+	\fancyhead[RO]{{\footnotesize\rightmark}}
+	\fancyfoot[RO]{\thepage}
+	\fancyhead[LE]{\footnotesize{\leftmark}}
+	\fancyfoot[LE]{\thepage}
+	\fancyhead[RE,LO]{}
+	\fancyfoot[C]{}
+	\renewcommand{\headrulewidth}{0.3pt}}
+\newcommand{\fncymain}{%
+	\fancyhead[RO]{{\footnotesize\rightmark}}
+	\fancyfoot[RO]{\thepage}
+	\fancyhead[LE]{{\footnotesize\leftmark}}
+	\fancyfoot[LE]{\thepage}
+	\fancyfoot[C]{}
+	\renewcommand{\headrulewidth}{0.3pt}}
