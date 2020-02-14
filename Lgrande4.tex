@@ -1,6 +1,8 @@
 \documentclass{standalone}
 \usepackage{grafica}
-\usepackage{foekfont}
+%\usepackage{foekfont}
+\input Typocaps.fd
+\newcommand*\initfamily{\usefont{U}{Typocaps}{xl}{n}}
 \usepackage[T1]{fontenc}
 \begin{document}
 \begin{tikzpicture}[scale=0.4, label style/.style={font=\fontsize{128}{128}\selectfont}]
@@ -17,8 +19,8 @@
 	\tkzDrawSegments(a,b b,c c,d d,a d,e)
 	\tkzDrawSegments(b,f e,f d,b)
 	\tkzDefMidPoint(d,b) \tkzGetPoint{m}
-	\tkzLabelPoint(m){\fontencoding{T1}\fontfamily{foekfont}\fontsize{42}{42}\selectfont C}
+	\tkzLabelPoint(m){\normalfont\initfamily\fontsize{42}{42}\selectfont C}
 	\tkzDefMidPoint(d,f) \tkzGetPoint{n}
-	\tkzLabelPoint[rotate=-45](n){\fontencoding{T1}\fontfamily{foekfont}\fontsize{42}{42}\selectfont\MakeUppercase{D}}
+	\tkzLabelPoint[rotate=-45](n){\normalfont\initfamily\fontsize{42}{42}\selectfont D}
 	\end{tikzpicture}
 \end{document}
