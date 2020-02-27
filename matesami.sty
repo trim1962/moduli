@@ -45,6 +45,12 @@
 	\ifnum#1>1 #1\fi
 	\ifnum#1<-1 #1\fi
 }
+\newcommand{\piumenoxx}[1]{
+	\ifnum#1=1 +1\fi
+	\ifnum#1=-1 -1\fi
+	\ifnum#1>1 +#1\fi
+	\ifnum#1<-1 #1\fi
+}
 \newcommand{\binomiox}[3][x]{%
 	\FPset\ca{#2}%
 	\FPset\cb{#3}%
@@ -74,7 +80,12 @@
 	\fi
 	\fi
 	\fi)}
-
+\newcommand{\bionomioab}[2]{(\piumeno{#1} a \piumeno{#2} b)}
+\newcommand{\difquadratiab}[2]{(\piumeno{#1}a \piumeno{#2} b)(\piumeno{#1} a -\semplix{#2}{1} b)}
+\newcommand{\difquadratia}[2]{(\piumeno{#1}a \piumenoxx{#2} )(\piumeno{#1} a -\semplix{#2}{1} )}
+\newcommand{\difquadratib}[2]{(\piumeno{#1}b \piumenoxx{#2} )(\piumeno{#1} b -\semplix{#2}{1} )}
+\newcommand{\bionomiob}[2]{(#1 \piumeno{#2} b)}
+\newcommand{\bionomioa}[2]{(#1 a \piumenoxx{#2} )}
 \newcommand{\quadratobinomiouno}[2]{%
 \left(\piumenox{#1}x\ifnum#2>0 +#2\else #2\fi\right)^2%
 }
