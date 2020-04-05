@@ -7,13 +7,14 @@
 \newlength\chapnumb
 \setlength\chapnumb{3.5cm}
 
+\newcommand{\chaptertitlefont}{\normalfont\sffamily\Huge}
 \titleformat{\chapter}[block] {
 	\normalfont\sffamily}{}{0pt} {
 	\parbox[b]{\chapnumb}{
 		\fontsize{100}{90}\selectfont\color{gray}\thechapter}
 	\parbox[b]{\dimexpr\textwidth-\chapnumb\relax}{
 		\raggedleft%
-		\hfill{\LARGE#1}\\
+		\hfill{\chaptertitlefont#1}\\
 		\rule{\dimexpr\textwidth-\chapnumb\relax}{0.4pt}
 	}
 }
@@ -23,9 +24,11 @@
 {\parbox[b]{\chapnumb}{%
 		\mbox{}}%
 	\parbox[b]{\dimexpr\textwidth-\chapnumb\relax}{%
-		\raggedleft%
-		\hfill{\LARGE#1}\\
-		\rule{\dimexpr\textwidth-\chapnumb\relax}{0.4pt}}}
+		%		\raggedleft%
+		\raggedright%
+		\hfill{\chaptertitlefont#1}\\
+		%	\rule{\dimexpr\textwidth-\chapnumb\relax}{0.4pt}
+}}
 \RequirePackage{titletoc}
 \RequirePackage{textcase}
 \titlecontents{section}
