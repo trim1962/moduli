@@ -2,7 +2,9 @@
 \ProvidesPackage{CDloghi}[2019/07/09]
 \RequirePackage{tkz-euclide}
 %\usetkzobj{all}
-
+\RequirePackage{tikz,pgfornament,tikzrput}         % altermundus.com/pages/tkz/tikzrput/
+\usetikzlibrary{decorations,decorations.text}  % altermundus.com/pages/tkz/ornament/ 
+\RequirePackage[first=-180, last=180,counter=die]{lcg}
 \RequirePackage{foekfont}
 \RequirePackage{tkz-berge}
 \RequirePackage[T1]{fontenc}
@@ -57,9 +59,8 @@
 		\end{tikzpicture} %} 
 	\end{center}
 }
-\RequirePackage{tikz,pgfornament,tikzrput}         % altermundus.com/pages/tkz/tikzrput/
-\usetikzlibrary{decorations,decorations.text}  % altermundus.com/pages/tkz/ornament/ 
-\RequirePackage[first=-180, last=180,counter=die]{lcg}
+
+
 \newcommand{\timbro}[5]{
 	\newcommand{\fraseuno}{#1}
 	\newcommand{\frasedue}{#2}
