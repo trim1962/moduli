@@ -1,6 +1,14 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{copyright}[2019/07/09]
 \RequirePackage{loghi}
+\RequirePackage{ifluatex}
+\newcommand{\CDlogoComp}{
+\ifluatex
+\LuaLaTeX{}
+\else
+\pdfLaTeX{}
+\fi 
+}
 \newcommand{\CDcopyright}{
 	\null\vspace{\stretch{1}}
 	\begin{flushright}
@@ -35,7 +43,7 @@ Internazionale.
 	\begin{itemize}
 	\item I mezzi usati
 	\begin{itemize}
-		\item pdf\LaTeX{} tramite la distribuzione\TeX{}~Live\newline
+		\item \CDlogoComp tramite la distribuzione\TeX{}~Live\newline
 		\url{http://www.tug.org/texlive}
 		\item Pacchetti usati
 		\begin{enumerate}
@@ -43,12 +51,13 @@ Internazionale.
 			\item Per la grafica i pacchetti TKZ di Altermundus \url{http://altermundus.fr}
 			\item Per l'elettronica il pacchetto CircuiTi\emph{k}Z
 			% {\large version \pgfcircversion{} (\pgfcircversiondate)}
-			\item Per la matematica il pacchetto \AmS
+			\item Per la matematica il pacchetto \amsmath
+			\item Per la gestione della bibliografia \Biber{} \BibLaTeX
 			\item Per le presentazioni \textsc{Beamer}
 		\end{enumerate}
 		\item Editor usati
 		\begin{enumerate}
-			\item \TeX{}studio\newline \url{http://texstudio.sourceforge.net/} %
+			\item \TeX{}Studio\newline \url{http://texstudio.sourceforge.net/} %
 %			\item Tikzedt\newline \url{http://www.tikzedt.org/index.html} %
 %			\item \textsc{KtikZ}\newline%
 %			\url{http://www.hackenberger.at/blog/ktikz-editor-for-the-tikz-language/}

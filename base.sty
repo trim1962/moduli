@@ -7,6 +7,7 @@
 \RequirePackage{ifluatex}
 \ifluatex
 \RequirePackage{fontspec}
+\RequirePackage{microtype}
 \RequirePackage{polyglossia}
 \setmainlanguage[babelshorthands]{italian}
 
@@ -35,6 +36,7 @@
 %\setmonofont{Consolas}
 %\setmathrm{Cambria Math}
 %\setmathfont{Cambria Math}
+
 \else
 %default: pdf(La)TeX
 \RequirePackage[italian]{babel}
@@ -43,8 +45,9 @@
 %\RequirePackage{cfr-lm}
 \RequirePackage[rm={oldstyle=false,proportional=true},sf={oldstyle=false,proportional=true},tt={oldstyle=true,proportional=true,variable=true},qt=false]{cfr-lm}
 %\RequirePackage{textcomp}
+\RequirePackage[babel=true]{microtype}
 \RequirePackage{fixcmex}
 \fi
 
-\RequirePackage[babel=true]{microtype}
+
 
