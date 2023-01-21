@@ -1,0 +1,18 @@
+% % % % % % % % % % % % % % % % % % %unità di misura % % % % % % % % % % %
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{glossario}[2022/12/23]
+\RequirePackage[symbols,acronyms,translate=false,nonumberlist,toc,numberedsection,counter=chapter,automake]{glossaries-extra}
+\RequirePackage{glossary-mcols}
+\RequirePackage{glossary-longragged}
+\RequirePackage{glossaries-babel}
+\addto\captionsitalian{%
+	\renewcommand*{\glossaryname}{Glossario}%
+	\renewcommand*{\acronymname}{Acronimi}%
+	\renewcommand*{\entryname}{Nomenclatura}%
+	\renewcommand*{\descriptionname}{Descrizione}%
+	\renewcommand*{\symbolname}{Simbolo}%
+	\renewcommand*{\pagelistname}{Elenco delle pagine}%
+	\renewcommand*{\glssymbolsgroupname}{Simboli}%
+	\renewcommand*{\glsnumbersgroupname}{Numeri}
+}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %

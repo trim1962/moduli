@@ -160,7 +160,7 @@ overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includeg
 %\RequirePackage{morewrites}
 
 \NewTColorBox[auto counter,number within=section,list inside=exam]{exercise}{+!O{}}{%
-	enhanced,colframe=white,colback=white,coltitle=black,breakable,
+	enhanced,colframe=white,colback=white,coltitle=black,enforce breakable,
 	fonttitle=\bfseries,
 	title={Esercizio~\thetcbcounter:},
 	label={esercizio@\thetcbcounter},
@@ -172,7 +172,7 @@ overlay={\node[anchor=north west,outer sep=2pt] at (frame.north west) {\includeg
 	record={\string\solution{\thetcbcounter}{solutions/exercise-\thetcbcounter.tex}},#1 %
 }
 \NewTotalTColorBox{\solution}{mm}{%
-	enhanced,colframe=white,colback=white,coltitle=black,breakable,
+	enhanced,colframe=white,colback=white,coltitle=black,enforce breakable,
 	fonttitle=\bfseries,
 	title={Soluzione dell'esercizio~\ref{esercizio@#1} di pagina~\pageref{esercizio@#1}:},
 	phantomlabel={solution@#1},
