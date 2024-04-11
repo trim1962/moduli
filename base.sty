@@ -9,18 +9,20 @@
 \RequirePackage{fontspec}
 \RequirePackage{microtype}
 \RequirePackage{polyglossia}
+\usepackage{unicode-math}
+\setmathfont{texgyrepagella-math.otf}
 \setmainlanguage[babelshorthands]{italian}
-
-\setmainfont[Ligatures=TeX]{TeX Gyre Termes}% font 
-%Times                             %
-\setsansfont[Ligatures=TeX, Scale=MatchLowercase]{TeX Gyre Heros}% font 
-%Helvetica    %
-\setmonofont{UM Typewriter}
-\usepackage[math-style=ISO]{unicode-math}% per la matematica UNICODE
-% specify math-style=ISO for ISO compliant math
-% specify math-style=TeX for TeX standard style
-\setmathfont{XITS Math}[partial=upright]% font matematici UNICODE che
-%                                          van bene con i Times
+%
+%\setmainfont[Ligatures=TeX]{TeX Gyre Termes}% font 
+%%Times                             %
+%\setsansfont[Ligatures=TeX, Scale=MatchLowercase]{TeX Gyre Heros}% font 
+%%Helvetica    %
+%\setmonofont{UM Typewriter}
+%\usepackage[math-style=ISO]{unicode-math}% per la matematica UNICODE
+%% specify math-style=ISO for ISO compliant math
+%% specify math-style=TeX for TeX standard style
+%\setmathfont{XITS Math}[partial=upright]% font matematici UNICODE che
+%%                                          van bene con i Times
 
 %\setotherlanguage[variant=ancient]{greek}% questa variante col patch
 %  nel file gloss-greek.ldf funziona anche con LuaLaTeX; senza patch
