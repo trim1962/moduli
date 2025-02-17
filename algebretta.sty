@@ -14,7 +14,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesPackage{algebretta}
-[2022/06/28 v3.0 creazione di binomi e trinomi]
+[2024/04/25 v4.0 creazione di binomi e trinomi e altro]
 \title{Il pacchetto Algebretta\thanks{Questo documento
 corrisponde al pacchetto \textsf{Algebretta}~\fileversion, con data
 \filedate.}}
@@ -119,6 +119,9 @@ stinc/.estore in = \mytrioB,
 -
 \fi
 }
+\newcommand{\SN}[1]{
+\ifnumcomp{#1}{<}{0}{negativo}{\ifnumcomp{#1}{=}{0}{Zero}{positivo}}
+}
 \newcommand{\mult}[1]{%
 \ifnumequal{#1}{0}{\PackageError{algebretta}{$a$ è zero}}{%
 \ifnumcomp{#1}{>}{0}{\ifnumequal{#1}{1}{+}{+#1}}%
@@ -157,6 +160,20 @@ stinc/.estore in = \mytrioB,
 \newcommand{\pbinomiop}[3][]{
 \pgfkeys{/mybinomio, default, #1}%
 (\APB[#1]{#2}{#3})}
+\newcommand{\segnodelta}[3]{
+\FPeval{resulta}{clip((#2)*(#2)-4*(#1)*(#3))}
+\ifnumcomp{\resulta}{<}{0}{negativo}{\ifnumcomp{\resulta}{=}{0}{Zero}{positivo}}}
+\newcommand{\valdelta}[3]{
+\inteval{(#2)*(#2)-4*(#1)*(#3)}}
+\newcommand{\segnoxvertice}[2]{\numdef{\px}{(-1)*(#1)*(#2)}\SN{\px}}
+\newcommand{\PosVerticex}[2]{
+\numdef{\x}{(-1)*(#1)*(#2)}
+\ifnumcomp{\x}{<}{0}{a sinistra dello zero}{\ifnumcomp{\x}{=}{0}{l'asse è l'asse y}{a destra dello zero}}}
+\newcommand{\segnoyvertice}[3]
+{\numdef{\py}{(-1)*(#1)*\valdelta{#1}{#2}{#3}}\SN{\py}}
+\newcommand{\PosVerticey}[3]{
+\numdef{\y}{(-1)*(#1)*\valdelta{#1}{#2}{#3}}
+\ifnumcomp{\y}{<}{0}{sotto asse x}{\ifnumcomp{\y}{=}{0}{sull'asse x}{sopra asse x}}}
 \newcommand{\PBI}[5][]{
 \pgfkeys{/mybinomio, default, #1}%
 \pgfkeys{/myerrori, default}%
@@ -291,23 +308,62 @@ stinc/.estore in = \mytrioB,
 \ifnumequal{#4}{0}{}{\ifnumgreater{#4}{0}{+#4}{#4}} 
 \ifnumequal{#2}{0}{\errore{\Erroretre}}{\ifnumequal{#2}{1}{+\mytrioA^{2}}
 {\ifnumequal{#2}{-1}{-\mytrioA^{2}}{+#2\mytrioA^{2}}}}}
-\newcommand{\ptrisgm}[5][]{%
+\newcommand{\trigsecgrad}[5][]{%
+\pgfkeys{/mytrinomiosecondog, default, #1}%
+\pgfkeys{/myerrori, default}%
 \ifcase #5%
-\ptrisgabc[#1]{#2}{#3}{#4}%0 abc
+{\ifnumequal{#2}{0}{\errore{\Errore@tre}}{\ifnumequal{#2}{1}{\mytrioA^{2}}
+{\ifnumequal{#2}{-1}{-\mytrioA^{2}}{#2\mytrioA^{2}}}}}
 \or
-\ptrisgacb[#1]{#2}{#3}{#4}%1 acb
+{\ifnumequal{#3}{0}{}{\ifnumequal{#3}{1}{\mytrioA}
+{\ifnumequal{#3}{-1}{-\mytrioA}{#3\mytrioA}}}}
 \or
-\ptrisgbac[#1]{#2}{#3}{#4}%2 bac
+\ifnumequal{#4}{0}{}{#4}
 \or
-\ptrisgbca[#1]{#2}{#3}{#4}%3 bca
+{\ifnumequal{#2}{0}{\errore{\Errore@tre}}{\ifnumequal{#2}{1}{\mytrioA^{2}}
+{\ifnumequal{#2}{-1}{-\mytrioA^{2}}{#2\mytrioA^{2}}}}}
 \or
-\ptrisgcab[#1]{#2}{#3}{#4}%4 cab
+{\ifnumequal{#3}{0}{}{\ifnumequal{#3}{1}{\mytrioA}
+{\ifnumequal{#3}{-1}{-\mytrioA}{#3\mytrioA}}}}
 \or
-\ptrisgcba[#1]{#2}{#3}{#4}%5 cba
+\ifnumequal{#4}{0}{}{#4}
+\fi%
+\ifcase #5%
+{\ifnumequal{#3}{0}{}{\ifnumequal{#3}{1}{+\mytrioA}
+{\ifnumequal{#3}{-1}{-\mytrioA}{\ifnumgreater{#3}{0}{+#3\mytrioA}{#3\mytrioA}}}}}
+\or
+{\ifnumequal{#2}{0}{\errore{\Errore@tre}}{\ifnumequal{#2}{1}{+\mytrioA^{2}}
+{\ifnumequal{#2}{-1}{-\mytrioA^{2}}{\ifnumgreater{#2}{0}{+#2\mytrioA^{2}}{#2\mytrioA^{2}}}}}}
+\or
+{\ifnumequal{#3}{0}{}{\ifnumequal{#3}{1}{+\mytrioA}
+{\ifnumequal{#3}{-1}{-\mytrioA}{\ifnumgreater{#3}{0}{+#3\mytrioA}{#3\mytrioA}}}}}
+\or
+\ifnumequal{#4}{0}{}{\ifnumgreater{#4}{0}{+#4}{#4}}
+\or
+\ifnumequal{#4}{0}{}{\ifnumgreater{#4}{0}{+#4}{#4}}
+\or
+{\ifnumequal{#2}{0}{\errore{\Errore@tre}}{\ifnumequal{#2}{1}{+\mytrioA^{2}}
+{\ifnumequal{#2}{-1}{-\mytrioA^{2}}{\ifnumgreater{#2}{0}{+#2\mytrioA^2}{#2\mytrioA^2}}}}}
 \fi
-\FPeval\resultaP{#3*#3-4*#2*#4}%
-\FPeval\resultaP{round(resultaP:0)}
-\PackageWarning{trisecg}{\FPprint‌\resultaP}}%
+\ifcase #5%
+{\ifnumequal{#4}{0}{}{\ifnumgreater{#4}{0}{+#4}{#4}}
+}
+\or
+\ifnumequal{#4}{0}{}{\ifnumgreater{#4}{0}{+#4}{#4}}
+\or
+\ifnumequal{#2}{0}{\errore{\Errore@tre}}{\ifnumequal{#2}{1}{+\mytrioA^{2}}
+{\ifnumequal{#2}{-1}{-\mytrioA^{2}}{\ifnumgreater{#2}{0}{+#2\mytrioA^{2}}{#2\mytrioA^{2}}}}}
+\or
+{\ifnumequal{#3}{0}{}{\ifnumequal{#3}{1}{+\mytrioA}
+{\ifnumequal{#3}{-1}{-\mytrioA}{\ifnumgreater{#3}{0}{+#3\mytrioA}{#3\mytrioA}}}}}
+\or
+\ifnumequal{#2}{0}{\errore{\Errore@tre}}{\ifnumequal{#2}{1}{+\mytrioA^{2}}
+{\ifnumequal{#2}{-1}{-\mytrioA^{2}}{\ifnumgreater{#2}{0}{+#2\mytrioA^{2}}{#2\mytrioA^{2}}}}}
+\or
+{\ifnumequal{#3}{0}{}{\ifnumequal{#3}{1}{+\mytrioA}
+{\ifnumequal{#3}{-1}{-\mytrioA}{\ifnumgreater{#3}{0}{+#3\mytrioA}{#3\mytrioA}}}}}
+\fi
+}
 \newcommand{\ptrisgpq}[3][]{
 \pgfkeys{/mytrinomiosecondog, default, #1}%
 \pgfkeys{/myerrori, default}%
@@ -404,7 +460,7 @@ stinc/.estore in = \mytrioB,
 \pgfkeys{/myiper, default, #1}%
 \dfrac{\mytrioA^2}{a^2}-\dfrac{\mytrioB^2}{b^2}=-1}
 %% 
-%% Copyright (C) 2022 by Claudio Duchi
+%% Copyright (C) 2024 by Claudio Duchi
 %% 
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License (LPPL), either
